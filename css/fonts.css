@@ -1,0 +1,24 @@
+@font-face {
+    font-family: Lato-Bold;
+    src: url(fonts/Lato/Lato-Bold.ttf);
+}
+
+@font-face {
+    font-family: Lato-Light;
+    src: url(fonts/Lato/Lato-Light.ttf);
+}
+
+@font-face {
+    font-family: Lato-Regular;
+    src: url(fonts/Lato/Lato-Regular.ttf);
+}
+
+@font-face {
+    font-family: Lora-Bold;
+    src: url(fonts/Lora/Lora-Bold.ttf);
+}
+
+@font-face {
+    font-family: Lora-Regular;
+    src: url(fonts/Lora/Lora-Regular.ttf);
+}
