@@ -166,3 +166,65 @@ main {
 .buttons .btn:hover {
     opacity: 0.5;
 }
+
+@media screen and (max-width: 950px) {
+    main {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+
+    .cover {
+        width: 100%;
+        position: relative;
+    }
+
+    .cover img {
+        margin: 20px auto;
+        width: 100px;
+    }
+
+    .form {
+        width: 100%;
+        margin: 50px 0;
+        padding: 0;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+    }
+
+    .form header {
+        margin: 20px 80px;
+    }
+
+    .form .data {
+        margin: 0 auto;
+    }
+
+    .form form input[type=mail],
+    .form form input[type=password],
+    .form form input[type=text] {
+        width: 100%;
+    }
+}
+
+/* RESPONSIVE FOR PHONES */
+@media screen and (max-width: 469px) {
+    .form h1 {
+        text-align: center;
+    }
+
+    .buttons {
+        margin: 50px auto;
+    }
+
+    .buttons button {
+        display: block;
+        margin: 20px auto;
+    }
+}
