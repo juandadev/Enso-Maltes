@@ -1,0 +1,168 @@
+@import url('fonts.css');
+
+* {
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 20px;
+    color: #c9c9c9;
+    font-family: Lato;
+}
+
+/* IMAGEN IZQUIERDA */
+main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.cover {
+    position: fixed;
+    height: 100%;
+    width: 40%;
+    background: url(../img/background-sign-in.png);
+}
+
+.cover img {
+    display: block;
+    margin: 50px auto;
+    width: 80%;
+}
+
+/* FORMULARIO */
+.form {
+    width: 60%;
+    padding: 50px;
+    margin-left: 40%;
+}
+
+.form header {
+    margin-bottom: 50px;
+}
+
+/* ENLACE 'VOLVER' */
+.form header a {
+    color: #c9c9c9;
+    text-decoration: none;
+    -webkit-transition: 0.5s ease;
+    transition: 0.5s ease;
+}
+
+.form header a:hover {
+    opacity: 0.5;
+}
+
+/* DATOS DEL FORMULARIO */
+.form h1 {
+    font-family: Lora;
+    font-weight: 100;
+    font-size: 48px;
+    color: #707070;
+    margin-bottom: 30px;
+}
+
+.form h1,
+.form form,
+.form .buttons {
+    padding: 0px 70px;
+    max-width:
+}
+
+.form form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.form form input[type=mail],
+.form form input[type=password],
+.form form input[type=text] {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    border: none;
+    border-bottom: 5px solid #385D66;
+    width: 400px;
+    margin-bottom: 50px;
+    font-size: 20px;
+    color: #707070;
+    -webkit-transition: 0.5s ease;
+    transition: 0.5s ease;
+}
+
+/* CUSTOM CHECKBOX */
+.form form input[type=checkbox] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.form form p {
+    padding-left: 35px;
+}
+
+.form form .check {
+    position: absolute;
+    height: 24px;
+    width: 24px;
+    border: 3px solid #385D66;
+    border-radius: 5px;
+    -webkit-transition: 0.5s ease;
+    transition: 0.5s ease;
+}
+
+.lblCheck:hover input[type=checkbox] ~ .check,
+.buttons .active:hover,
+.form form input[type=mail]:hover,
+.form form input[type=password]:hover,
+.form form input[type=text]:hover {
+    -webkit-box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+}
+
+.lblCheck input[type=checkbox]:checked ~ .check {
+    background-color: #385D66;
+}
+
+/* BOTONES DEL FORMULARIO */
+.buttons {
+    margin-top: 60px;
+}
+
+.buttons .active,
+.buttons .btn {
+    font-size: 18px;
+    font-family: Lato;
+    padding: 14px 18px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+.buttons .active {
+    color: #fff;
+    background-color: #385D66;
+    -webkit-transition: 0.5s ease;
+    transition: 0.5s ease;
+}
+
+.buttons .btn {
+    background-color: #fff;
+    color: #707070;
+    -webkit-transition: 0.5s ease;
+    transition: 0.5s ease;
+}
+
+.buttons .btn:hover {
+    opacity: 0.5;
+}
