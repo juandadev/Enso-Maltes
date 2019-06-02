@@ -36,14 +36,22 @@ body {
     font-size: 18px;
 }
 
-main,
-header {
-    margin: 20px 7%;
+main {
+    margin: 0px 7%;
+    padding-top: 100px;
+}
+
+/* Sticky navbar */
+.sticky {
+    position: fixed;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 }
 
 /* Logo */
 header {
-    margin-bottom: 100px;
+    width: 100%;
+    background: #fff;
+    padding: 20px 7%;
 }
 
 header a {
