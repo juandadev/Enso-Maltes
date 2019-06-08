@@ -19,32 +19,42 @@
         <div class="cover">
             <img src="img/halcon.png" alt="Enso Maltés Logo">
         </div>
+        
         <div class="form">
             <header>
-                <a href="inicio.html">Volver</a>
+                <a href="inicio.php">Volver</a>
             </header>
+            
             <div class="data">
                 <h1>Iniciar sesión</h1>
-                <form action="login.php" method="GET" class="login" id="login">
+                
+                <form action="php/procesarLogin.php" method="GET" class="login" id="login">
                     <label>CORREO
                         <input type="mail" name="email">
                     </label>
+                    
                     <label>CONTRASEÑA
                         <input type="password" name="passw">
                     </label>
+                    
                     <label class="lblCheck">
                         <input type="checkbox" name="remember">
+                        
                         <span class="check"></span>
+                        
                         <p>RECORDAR</p>
                     </label>
                 </form>
+                
                 <div class="buttons">
                     <button class="active" id="btnLogin">INICIAR SESIÓN</button>
+                    
                     <button class="btn" id="btnRegister">REGISTRARSE</button>
                 </div>
             </div>
         </div>
     </main>
+    
     <script src="js/login.js"></script>
 </body>
 

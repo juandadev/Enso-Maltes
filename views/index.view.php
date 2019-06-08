@@ -21,10 +21,12 @@
             <button class="closebtn" id="close">
                 <i class="fas fa-times"></i>
             </button>
-            <a href="login.html">Iniciar sesión</a>
+            
+            <a href="login.php">Iniciar sesión</a>
             <a href="#">Acerca de</a>
             <a href="#">Contacto</a>
         </nav>
+        
         <button class="hidden-menu" id="open">
             <i class="fas fa-bars"></i>
         </button>
@@ -33,8 +35,10 @@
     <main>
         <div class="logo">
             <img src="img/logo.png" alt="Enso Maltés">
+            
             <button class="visit" id="visit">Visitar Blog</button>
         </div>
     </main>
+    
     <script src="js/landing.js"></script>
 </body></html>
