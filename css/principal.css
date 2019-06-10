@@ -27,7 +27,8 @@ nav,
 header img,
 .cover img,
 nav,
-.rank {
+.rank,
+.portada {
     width: 100%;
 }
 
@@ -284,6 +285,44 @@ nav a:hover,
     color: #707070;
 }
 
+/* Articulo */
+.articulo {
+    display: flex;
+    flex-direction: column;
+}
+
+.article_title {
+    font-size: 38px;
+    color: #707070;
+    font-family: Lora;
+}
+
+.fecha {
+    color: #c9c9c9;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.portada {
+    background: #000;
+    margin-bottom: 50px;
+}
+
+.portada img {
+    display: block;
+    margin: 0 auto;
+    width: 30%;
+}
+
+.content {
+    text-align: justify;
+    color: #707070;
+}
+
+.articulo .author {
+    margin-bottom: 80px;
+}
+
 /* Paginación */
 .paginacion ul {
     display: flex;
@@ -308,7 +347,6 @@ nav a:hover,
 .paginacion ul li {
     list-style: none;
     font-size: 28px;
-    cursor: pointer;
     color: #c9c9c9;
     transition: 0.3s ease;
 }
@@ -317,11 +355,35 @@ nav a:hover,
     font-size: 32px;
 }
 
+.paginacion ul li a {
+    color: #C9C9C9;
+}
+
+.disabled {
+    cursor: not-allowed;
+}
+
+.actual {
+    background-color: #707070;
+}
+
+/* ERROR */
+.error h2 {
+    text-align: center;
+    font-size: 48px;
+    font-family: Lato;
+    color: #707070;
+}
+
+.error {
+    margin-bottom: 100px;
+}
+
 /* Footer */
 footer {
     font-size: 16px;
     rgba(0, 0, 0, 0.16);
-    box-shadow: 10px 0 10px 0 rgba(0, 0, 0, 0.16);
+    box-shadow: 0 -10px 10px 0 rgba(0, 0, 0, 0.16);
     width: 100%;
     padding: 20px;
 }
