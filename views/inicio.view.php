@@ -6,18 +6,14 @@ require 'header.php';
     <section class="rank">
         <div class="container">
             <div class="cover">
-                <img src="img/og.png" alt="Obito">
+                <img src="users/articles/<?php print_r($principal['foto_portada']); ?>" alt="<?php print_r($principal['titulo']); ?>">
             </div>
 
             <div class="wrap">
                 <div class="info">
-                    <h3>Óbito</h3>
+                    <h3><?php print_r($principal['titulo']); ?></h3>
 
-                    <p>
-                        Ya vi a mis amigos en estado putrefacto muchas veces, en una vida compartida
-                        de trocito en trocito. Los amigos son de épocas, le dije a Miguel, y lo comprendió a la primera.
-                        Ya les vi a todos, ahorcados, ahogados, vomitados boca arriba, con las camas empapadas y las sábanas duras por la sangre seca.
-                    </p>
+                    <p><?php print_r($principal['extracto']); ?></p>
                 </div>
 
                 <div class="footer-rank">
@@ -25,43 +21,32 @@ require 'header.php';
 
                     <div class="author">
                         <div class="pic">
-                            <img src="img/panero.png" alt="Francisco Panero">
+                            <img src="users/profile/<?php print_r($principal['foto_perfil']); ?>" alt="<?php print_r($principal['nombre_usuario']); ?>">
                         </div>
 
-                        <p>Francisco Panero</p>
+                        <p><?php print_r($principal['nombre_usuario']); ?></p>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="nav-rank">
+           <?php foreach($posts as $post): ?>
             <div class="nav-rank-item">
-                <a href="#">Las vivencias son para ti, no pa' los demás</a>
+                <a href="#"><?php echo $post['titulo']; ?></a>
             </div>
-
-            <div class="nav-rank-item selected">
-                <a href="#">Óbito</a>
-            </div>
-
-            <div class="nav-rank-item">
-                <a href="#">Vamos a la esquina a fumar unos porros</a>
-            </div>
-
-            <div class="nav-rank-item">
-                <a href="#">Con timón y en el delirio</a>
-            </div>
+            <?php endforeach; ?>
         </div>
     </section>
 
     <section class="preview">
+       <?php foreach($posts as $post): ?>
         <div class="item-prev">
-            <h4>COMIDA</h4>
+            <h4><?php echo $post['nombre_categoria']; ?></h4>
 
-            <h3>Qué es Poo Pourri y por qué conocerlo</h3>
+            <h3><?php echo $post['titulo']; ?></h3>
 
-            <p>
-                No hay nada más incómodo que ir al baño en lugares donde el sanitario es compartido. En especial, lugares como la oficina o la escuela. No cabe duda,…
-            </p>
+            <p><?php echo $post['extracto']; ?></p>
 
             <div class="stats">
                 <i class="fas fa-eye">
@@ -75,12 +60,13 @@ require 'header.php';
 
             <div class="author">
                 <div class="pic">
-                    <img src="img/panero.png" alt="Francisco Panero">
+                    <img src="users/profile/<?php echo $post['foto_perfil']; ?>" alt="<?php echo $post['nombre_usuario']; ?>">
                 </div>
 
-                <p>Francisco Panero</p>
+                <p><?php echo $post['nombre_usuario']; ?></p>
             </div>
         </div>
+        <?php endforeach; ?>
     </section>
 
     <?php
