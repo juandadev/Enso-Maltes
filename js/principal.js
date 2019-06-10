@@ -13,3 +13,10 @@ function stick() {
         navbar.classList.remove("sticky");
     }
 }
+
+//Login button
+var btnLogin = document.getElementById('btnLogin');
+
+btnLogin.addEventListener('click', function() {
+    window.location = 'login.php';
+});
