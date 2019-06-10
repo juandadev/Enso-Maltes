@@ -6,7 +6,7 @@ $db_config = array(
 );
 
 $blog_config = array(
-    'posts_per_page' => '6';
+    'posts_per_page' => '6',
     'images' => 'img/'
 );
 ?>
