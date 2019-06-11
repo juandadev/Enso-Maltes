@@ -46,4 +46,13 @@ function noPaginas($post_per_page, $con) {
     $paginas = ceil($total_post / $post_per_page);
     return $paginas;
 }
+
+function mailValidate($email) {
+//    if (eregi("^[_a-zA-Z0-9-]+(.[_a-zA-Z0-9-]+)*@([_a-zA-Z0-9-]+.)*[a-zA-Z0-9-]{2,200}.[a-zA-Z]{2,6}$", $email)) { 
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        return true; 
+   	} else { 
+      	return false; 
+   	} 
+}
 ?>
