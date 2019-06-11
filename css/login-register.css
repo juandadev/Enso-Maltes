@@ -134,9 +134,33 @@ main {
     background-color: #385D66;
 }
 
+/* ERRORES */
+.errors {
+    background: #385D66;
+    width: 400px;
+    opacity: 0.6;
+    padding: 20px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.errors li {
+    list-style: none;
+    color: #fff;
+}
+
 /* BOTONES DEL FORMULARIO */
 .buttons {
-    margin-top: 60px;
+    margin-top: 20px;
 }
 
 .buttons .active,
