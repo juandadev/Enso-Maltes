@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-06-2019 a las 01:15:01
+-- Tiempo de generación: 11-06-2019 a las 23:55:59
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 7.2.5
 
@@ -44,15 +44,7 @@ CREATE TABLE `articulos` (
 --
 
 INSERT INTO `articulos` (`id_articulo`, `fk_id_autor`, `titulo`, `extracto`, `fecha`, `contenido`, `foto_portada`, `fk_id_categoria`) VALUES
-(1, 2, 'Base de datos como servicio', 'Configurar, probar y demostrar el acceso a una base de datos alojada con un proveedor de cómputo en la nube.', '2019-06-10 01:28:56', 'A diferencia de montar los servidores localmente desde nuestro propio ordenador, al utilizar algún proveedor de cómputo en la nube nos ahorra muchísimo espacio, tiempo y trabajo, ya que prácticamente al alcance de un clic podemos contratar y levantar el servidor de nuestra preferencia sin ningún esfuerzo.\r\nExisten diferentes proveedores para diferente tipo de cosas, con tarifas muy accesibles y herramientas para poder manejar el servidor a nuestro gusto, todo esto supone una gran ventaja para adentrarse en el cómputo en la nube.\r\nEl único contratiempo que se tuvo fue el no saber cómo se abrían los puertos en el Firewall del servidor para poder realizar la conexión exitosamente.\r\nEl tiempo aproximado de la realización de la actividad fue alrededor de 2 horas.\r\n', 'bit.jpg', 1),
-(2, 2, 'CMS alojado en la web', 'Instalar y configurar un CMS utilizando un proveedor de hosting o de servicios de cómputo en la nube.', '2019-06-10 01:28:56', 'Utilizar un proveedor de cómputo en la nube la instalación de aplicaciones o CMS en servidores está al alcance de un solo clic, y ofrecen muchas facilidades de pago dependiendo de las características que mejor se adapten a nuestras necesidades, esto supone ser una herramienta muy útil para la mayoría de la gente ya que en términos de costo es mucho más barato la renta de un servidor que estar manteniendo uno en nuestro propio lugar de trabajo.\r\nNo hubo contratiempos al momento de la realización de esta actividad.\r\nEl tiempo aproximado de la realización de la actividad fue alrededor de 1 hora.\r\n', 'presta.jpg', 1),
-(3, 2, 'adfasdf', 'sadfasdf', '2019-06-10 04:44:11', 'asdfasdf', NULL, 4),
-(4, 2, 'sdfasdf', 'asdfasdf', '2019-06-10 04:44:11', 'asdfasdf', NULL, 3),
-(5, 2, 'asdfasdf', 'asdfasdf', '2019-06-10 04:44:11', 'adfgdfh', NULL, 1),
-(6, 2, 'adfgadfg', 'adfgadfg', '2019-06-10 04:44:11', 'adfgadfg', NULL, 6),
-(7, 2, 'adfgadfh', 'dafhgadfg', '2019-06-10 04:44:11', 'adfgadfg', NULL, 2),
-(8, 2, 'adfgadfh', 'adfgadfh', '2019-06-10 04:44:11', 'adfhadfh', NULL, 5),
-(9, 2, 'adfhdfh', 'adfgadfg', '2019-06-10 04:44:11', 'adfgadfg', NULL, 2);
+(1, 1, 'Golpeados pero no vencidos', 'Que estamos atribulados en todo, mas no angustiados; en apuros, mas no desesperados; perseguidos, mas no desamparados; derribados, pero no destruidos...', '2019-06-11 20:23:33', 'Una afliccion trae un sentimiento persistente de angustia y desesperacion. No deseamos que ninguna preocupacion pequena y temporal crezca y se convierta en una situacion permanente, persistente, que asesine nuestro deseo de vivir.\r\n\r\nUna afliccion puede destruirnos si lo permitimos. Lo que nos ampara y protege contra la corrosiva fuerza de cualquier afliccion, es la presencia de Dios en nuestras vidas. Su presencia determina si la afliccion desaparece, o nos destruye. El poder de Dios en nuestras almas nos dice si la situacion no pasara de ser solo una preocupacion. Sin la presencia de Dios en nuestros corazones cualquier afliccion nos puede llevar a la locura y hasta la muerte.\r\n\r\nCon Dios en nuestras vidas, tal vez seremos perseguidos, pero jamas nos sentiremos abandonados, seremos golpeados por circunstancias que parecen imposibles, pero por aferrarnos a su amor y perdon, jamas seremos derribados.\r\n\r\nSe con certeza que estas palabras son ciertas, y te dire por que. Cuando conoces a Dios, tu sabes con certeza que algo mayor, mas grande, mas fuerte que tu esta en control de tu vida, de tu futuro, de tu destino. \r\n\r\n\"...Entonces, que diremos a esto? Si Dios esta por nosotros, quien estara contra nosotros?\" Romanos 8:31\r\n\r\nNo te sientas culpable por \"sentirte afligido\", o por reconocer que en verdad has sido golpeado y que los golpes recibidos duelen. Claro que duelen. \r\n\r\nNo tengas temor de reconocer que temporalmente te encuentras confundido, atacado por dudas y que el sentimiento de angustia pelea contra la paz de Dios en lo mas profundo de tu alma. Estas en la lucha, y estas sufriendo dolor, pero no seras derrotado, no seras vencido.', 'golpeado.jpg', 3);
 
 -- --------------------------------------------------------
 
@@ -63,8 +55,8 @@ INSERT INTO `articulos` (`id_articulo`, `fk_id_autor`, `titulo`, `extracto`, `fe
 CREATE TABLE `autores` (
   `id_autor` bigint(20) UNSIGNED NOT NULL,
   `fk_id_usuario` bigint(20) UNSIGNED NOT NULL,
-  `foto_perfil` varchar(200) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT NULL,
-  `genero` enum('femenino','masculino') CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL DEFAULT 'femenino',
+  `foto_perfil` varchar(200) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT 'default.png',
+  `genero` enum('femenino','masculino','no definido') CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT 'no definido',
   `info_autor` text CHARACTER SET utf8 COLLATE utf8_spanish_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -73,7 +65,7 @@ CREATE TABLE `autores` (
 --
 
 INSERT INTO `autores` (`id_autor`, `fk_id_usuario`, `foto_perfil`, `genero`, `info_autor`) VALUES
-(2, 1, 'juan.png', 'masculino', 'Web Developer | Parral, Chihuahua\r\njuandamartinez.com');
+(1, 5, 'default.png', 'no definido', NULL);
 
 -- --------------------------------------------------------
 
@@ -92,8 +84,8 @@ CREATE TABLE `categorias` (
 
 INSERT INTO `categorias` (`id_categoria`, `nombre_categoria`) VALUES
 (1, 'Cultura General'),
-(2, 'Política'),
-(3, 'Filosofía'),
+(2, 'Politica'),
+(3, 'Filosofia'),
 (4, 'Arte'),
 (5, 'Salud'),
 (6, 'Mistiscismo');
@@ -133,7 +125,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `correo`, `verificado`, `contrasena`, `tipo_usuario`) VALUES
-(1, 'Juan Daniel', 'jdmartinez@itparral.edu.mx', '0', '15410596', 'autor');
+(5, 'juan daniel', 'snoopdjffny@gmail.com', '0', 'f00fe6ae6cec917d69b08459395a09ccb12580d4397ee1fea9dc0465b25406c98c4b5e22256e624bdfbc111b6697930c262d4fbc0ea4c868d2b7ee5f6df8f5a3', 'autor');
 
 -- --------------------------------------------------------
 
@@ -174,7 +166,8 @@ ALTER TABLE `categorias`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`id_usuario`),
-  ADD UNIQUE KEY `usuarios_correo_unique` (`correo`);
+  ADD UNIQUE KEY `usuarios_correo_unique` (`correo`),
+  ADD UNIQUE KEY `UNIQUE` (`nombre_usuario`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -184,13 +177,13 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `articulos`
 --
 ALTER TABLE `articulos`
-  MODIFY `id_articulo` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_articulo` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `autores`
 --
 ALTER TABLE `autores`
-  MODIFY `id_autor` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_autor` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `categorias`
@@ -202,7 +195,7 @@ ALTER TABLE `categorias`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_usuario` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Restricciones para tablas volcadas
