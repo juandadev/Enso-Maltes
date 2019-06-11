@@ -32,6 +32,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $errors .= '<li>El correo no es válido</li>';
         }
         
+        if (mailExists($email, $con) == true) {
+            $errors .= '<li>El correo ya ha sido registrado</li>';
+        }
+        
 //        Hasheando contraseña
         $password = hash('sha512', $password);
         $confirm = hash('sha512', $confirm);

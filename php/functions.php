@@ -2,7 +2,7 @@
 //Database connection
 function connection($db_config) {
     try {
-        $con = new PDO('mysql:host='.$db_config['host'].';dbname='.$db_config['database'].'', $db_config['user'], $db_config['pass']);
+        $con = new PDO('mysql:host=localhost;dbname='.$db_config['database'].'', $db_config['user'], $db_config['pass']);
         return $con;
     } catch (PDOException $e) {
         echo "Error: ". $e->getMessage();
@@ -55,5 +55,11 @@ function mailValidate($email) {
    	} else { 
       	return false; 
    	} 
+}
+
+function mailExists($email, $con) {
+    $result = $con->query("SELECT * FROM usuarios WHERE correo = '$email'");
+    $result = $result->fetchAll();
+    return ($result) ? true : false;
 }
 ?>
