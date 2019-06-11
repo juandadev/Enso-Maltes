@@ -27,6 +27,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($result != false) {
             $errors .= '<li>El nombre de usuario ya está en uso</li>';
         }
+        
+        if (mailValidate($email) == false) {
+            $errors .= '<li>El correo no es válido</li>';
+        }
+        
+//        Hasheando contraseña
+        $password = hash('sha512', $password);
+        $confirm = hash('sha512', $confirm);
+        
+        if ($password != $confirm) {
+            $errors .= '<li>Las contraseñas deben coincidir</li>';
+        }
+    }
+    
+    if ($errors == '') {
+        $statement = $con->prepare("INSERT INTO usuarios (id_usuario, nombre_usuario, correo, contrasena) VALUES (null, '$user', '$email', '$password')");
+        $statement->execute();
+        
+        header('Location: login.php');
     }
 }
 
