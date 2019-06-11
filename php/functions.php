@@ -5,6 +5,7 @@ function connection($db_config) {
         $con = new PDO('mysql:host=localhost;dbname='.$db_config['database'].'', $db_config['user'], $db_config['pass']);
         return $con;
     } catch (PDOException $e) {
+        echo "Error: ". $e->getMessage();
         return false;
     }
 }
