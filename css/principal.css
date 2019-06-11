@@ -91,7 +91,8 @@ nav a:hover,
 }
 
 /* Botón iniciar sesión */
-.btnLogin {
+.btnLogin,
+.btnLogout {
     color: #fff;
     background: #385D66;
     border: none;
@@ -317,6 +318,7 @@ nav a:hover,
 .content {
     text-align: justify;
     color: #707070;
+    margin-bottom: 100px;
 }
 
 .articulo .author {
