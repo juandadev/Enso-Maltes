@@ -19,42 +19,51 @@
         <div class="cover">
             <img src="img/halcon.png" alt="Enso Maltés Logo">
         </div>
-        
+
         <div class="form">
             <header>
                 <a href="inicio.php">Volver</a>
             </header>
-            
+
             <div class="data">
                 <h1>Registrarse</h1>
-                
-                <form action="php/procesarRegistro.php" method="GET" class="login" id="login">
+
+                <!--                Redireccionando a sí mismo-->
+                <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" class="login" id="login">
                     <label>USUARIO
                         <input type="text" name="user">
                     </label>
-                    
+
                     <label>CORREO
                         <input type="mail" name="email">
                     </label>
-                    
+
                     <label>CONTRASEÑA
                         <input type="password" name="passw">
                     </label>
-                    
+
                     <label>CONFIRMAR CONTRASEÑA
                         <input type="password" name="confPass">
                     </label>
+
+                    <?php if(!empty($errors)): ?>
+                    <div class="errors">
+                        <ul>
+                            <?php echo $errors; ?>
+                        </ul>
+                    </div>
+                    <?php endif; ?>
+
+                    <div class="buttons">
+                        <button type="button" class="btn" id="btnLogin">INICIAR SESIÓN</button>
+
+                        <button type="submit" class="active" id="btnRegister">REGISTRARSE</button>
+                    </div>
                 </form>
-                
-                <div class="buttons">
-                    <button class="btn" id="btnLogin">INICIAR SESIÓN</button>
-                    
-                    <button class="active" id="btnRegister">REGISTRARSE</button>
-                </div>
             </div>
         </div>
     </main>
-    
+
     <script src="js/register.js"></script>
 </body>
 
