@@ -118,7 +118,7 @@ nav a:hover,
 }
 
 .cover {
-    width: 40%;
+    width: 30%;
     max-width: 500px;
     margin-right: 20px;
     cursor: pointer;
@@ -171,6 +171,10 @@ nav a:hover,
     -ms-flex-align: center;
     align-items: center;
     cursor: pointer;
+}
+
+.author p {
+    text-transform: capitalize;
 }
 
 .author .pic img {
@@ -331,6 +335,7 @@ nav a:hover,
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    margin-bottom: 50px;
 }
 
 .circle {
