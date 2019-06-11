@@ -12,7 +12,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $password = $_POST['passw'];
     $password = hash('sha512', $password);
-    $remember = $_POST['remember'];
+    
+    if (empty($_POST['remember'])) {
+        
+    }
     
     $errors = '';
     
@@ -21,13 +24,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $statement = $con->prepare("SELECT * FROM usuarios WHERE correo = '$email' AND contrasena = '$password'");
     $statement->execute();
     $result = $statement->fetch();
-    echo $result;
     
     if ($result !== false) {
-        $_SESSION['usuario'] = $usuario;
+        $_SESSION['usuario'] = $result['nombre_usuario'];
         header('Location: inicio.php');
     } else {
-        $errors .= '<li>Datos incorrectos</li>';
+        $errors .= '<li>Correo o contraseña incorrectos</li>';
     }
 }
 
