@@ -1,5 +1,11 @@
 <?php
-require 'header.php';
+session_start();
+
+if (isset($_SESSION['usuario'])) {
+    require 'views/header_logout.php';
+} else {
+    require 'views/header_login.php';
+}
 ?>
 
 <main>
@@ -31,7 +37,7 @@ require 'header.php';
         </div>
 
         <div class="nav-rank">
-           <?php foreach($posts as $post): ?>
+            <?php foreach($posts as $post): ?>
             <div class="nav-rank-item">
                 <a href="#"><?php echo $post['titulo']; ?></a>
             </div>
@@ -40,7 +46,7 @@ require 'header.php';
     </section>
 
     <section class="preview">
-       <?php foreach($posts as $post): ?>
+        <?php foreach($posts as $post): ?>
         <div class="item-prev">
             <h4><?php echo $post['nombre_categoria']; ?></h4>
 

@@ -1,6 +1,13 @@
 <?php
 require 'private/config.php';
-require 'views/header.php';
+
+session_start();
+
+if (isset($_SESSION['usuario'])) {
+    require 'views/header_logout.php';
+} else {
+    require 'views/header_login.php';
+}
 ?>
 
 <main>
