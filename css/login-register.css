@@ -153,6 +153,10 @@ main {
     transition: 0.3s;
 }
 
+.lblCheck {
+    margin-bottom: 20px;
+}
+
 .errors li {
     list-style: none;
     color: #fff;
