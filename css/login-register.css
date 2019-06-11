@@ -156,6 +156,7 @@ main {
 .errors li {
     list-style: none;
     color: #fff;
+    margin-bottom: 10px;
 }
 
 /* BOTONES DEL FORMULARIO */
