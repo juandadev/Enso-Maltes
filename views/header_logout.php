@@ -9,6 +9,8 @@
     <link rel="icon" href="img/favicon/16px.ico" sizes="16x16">
 
     <title>Enso Maltés | Inicio</title>
+
+    <script src="js/principal.js"></script>
 </head>
 
 <body>
@@ -26,6 +28,3 @@
             <button class="btnLogout" id="btnLogin">Cerrar sesión</button>
         </nav>
     </header>
-
-    <script src="js/principal.js">
-        </script>
