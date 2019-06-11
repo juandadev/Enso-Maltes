@@ -28,7 +28,7 @@
             <div class="data">
                 <h1>Iniciar sesión</h1>
 
-                <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="GET" class="login" id="login">
+                <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="POST" class="login" id="login">
                     <label>CORREO
                         <input type="mail" name="email">
                     </label>
@@ -44,7 +44,15 @@
 
                         <p>RECORDAR</p>
                     </label>
-                    
+
+                    <?php if(!empty($errors)): ?>
+                    <div class="errors">
+                        <ul>
+                            <?php echo $errors; ?>
+                        </ul>
+                    </div>
+                    <?php endif; ?>
+
                     <div class="buttons">
                         <button type="submit" class="active" id="btnLogin">INICIAR SESIÓN</button>
 
