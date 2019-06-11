@@ -48,7 +48,8 @@ function noPaginas($post_per_page, $con) {
 }
 
 function mailValidate($email) {
-//    if (eregi("^[_a-zA-Z0-9-]+(.[_a-zA-Z0-9-]+)*@([_a-zA-Z0-9-]+.)*[a-zA-Z0-9-]{2,200}.[a-zA-Z]{2,6}$", $email)) { 
+    $email = filter_var(strtolower($email), FILTER_SANITIZE_EMAIL);
+    
     if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
         return true; 
    	} else { 
