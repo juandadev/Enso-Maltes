@@ -244,8 +244,18 @@ main {
 
 /* RESPONSIVE FOR PHONES */
 @media screen and (max-width: 469px) {
+    .data {
+        width: 100%;
+    }
+    
+    .form form {
+        margin: 0;
+        padding: 10px;
+    }
+    
     .form h1 {
         text-align: center;
+        font-size: 38px;
     }
 
     .buttons {
