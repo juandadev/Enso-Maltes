@@ -12,7 +12,25 @@ if (isset($_SESSION['usuario'])) {
 
 <main>
     <div class="error">
-        <h2>Ups! algo ha salido mal</h2>
+    <?php
+    switch ($_GET['e']) {
+        case 1:
+            echo '<h2>Parece que nadie ha escrito nada aún!</h2>';
+            break;
+        
+        case 2:
+            echo '<h2>Parece que el articulo ha sido eliminado o no existe</h2>';
+            break;
+            
+        case 3:
+            echo '<h2>El perfil del autor al que intentas ingresar no existe!</h2>';
+            break;
+            
+        case 4:
+            echo '<h2>Ups! parece que hubo un error de conexión</h2>';
+            break;
+    }
+    ?>
     </div>
 </main>
 

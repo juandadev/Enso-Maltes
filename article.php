@@ -6,7 +6,7 @@ $con = connection($db_config);
 $id_articulo = article($_GET['id']);
 
 if (!$con) {
-    header('Location: error.php');
+    header('Location: error.php?e=4');
 }
 
 if (empty($id_articulo)) {
@@ -16,7 +16,7 @@ if (empty($id_articulo)) {
 $post = idPost($con, $id_articulo);
 
 if (!$post) {
-    header('Location: inicio.php');
+    header('Location: error.php?e=2');
 }
 
 $post = $post[0];
