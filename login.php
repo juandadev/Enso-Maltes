@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $result = $statement->fetch();
     
     if ($result !== false) {
-        $_SESSION['usuario'] = $result['nombre_usuario'];
+        $_SESSION['usuario'] = $result['id_usuario'];
         header('Location: inicio.php');
     } else {
         $errors .= '<li>Correo o contraseña incorrectos</li>';
