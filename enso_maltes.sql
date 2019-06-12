@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-06-2019 a las 23:55:59
+-- Tiempo de generación: 12-06-2019 a las 05:58:32
 -- Versión del servidor: 10.1.32-MariaDB
 -- Versión de PHP: 7.2.5
 
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `articulos` (
   `id_articulo` bigint(20) UNSIGNED NOT NULL,
-  `fk_id_autor` bigint(20) UNSIGNED NOT NULL,
+  `fk_id_usuario` bigint(20) UNSIGNED NOT NULL,
   `titulo` varchar(191) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   `extracto` varchar(200) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -43,29 +43,8 @@ CREATE TABLE `articulos` (
 -- Volcado de datos para la tabla `articulos`
 --
 
-INSERT INTO `articulos` (`id_articulo`, `fk_id_autor`, `titulo`, `extracto`, `fecha`, `contenido`, `foto_portada`, `fk_id_categoria`) VALUES
-(1, 1, 'Golpeados pero no vencidos', 'Que estamos atribulados en todo, mas no angustiados; en apuros, mas no desesperados; perseguidos, mas no desamparados; derribados, pero no destruidos...', '2019-06-11 20:23:33', 'Una afliccion trae un sentimiento persistente de angustia y desesperacion. No deseamos que ninguna preocupacion pequena y temporal crezca y se convierta en una situacion permanente, persistente, que asesine nuestro deseo de vivir.\r\n\r\nUna afliccion puede destruirnos si lo permitimos. Lo que nos ampara y protege contra la corrosiva fuerza de cualquier afliccion, es la presencia de Dios en nuestras vidas. Su presencia determina si la afliccion desaparece, o nos destruye. El poder de Dios en nuestras almas nos dice si la situacion no pasara de ser solo una preocupacion. Sin la presencia de Dios en nuestros corazones cualquier afliccion nos puede llevar a la locura y hasta la muerte.\r\n\r\nCon Dios en nuestras vidas, tal vez seremos perseguidos, pero jamas nos sentiremos abandonados, seremos golpeados por circunstancias que parecen imposibles, pero por aferrarnos a su amor y perdon, jamas seremos derribados.\r\n\r\nSe con certeza que estas palabras son ciertas, y te dire por que. Cuando conoces a Dios, tu sabes con certeza que algo mayor, mas grande, mas fuerte que tu esta en control de tu vida, de tu futuro, de tu destino. \r\n\r\n\"...Entonces, que diremos a esto? Si Dios esta por nosotros, quien estara contra nosotros?\" Romanos 8:31\r\n\r\nNo te sientas culpable por \"sentirte afligido\", o por reconocer que en verdad has sido golpeado y que los golpes recibidos duelen. Claro que duelen. \r\n\r\nNo tengas temor de reconocer que temporalmente te encuentras confundido, atacado por dudas y que el sentimiento de angustia pelea contra la paz de Dios en lo mas profundo de tu alma. Estas en la lucha, y estas sufriendo dolor, pero no seras derrotado, no seras vencido.', 'golpeado.jpg', 3);
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `autores`
---
-
-CREATE TABLE `autores` (
-  `id_autor` bigint(20) UNSIGNED NOT NULL,
-  `fk_id_usuario` bigint(20) UNSIGNED NOT NULL,
-  `foto_perfil` varchar(200) CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT 'default.png',
-  `genero` enum('femenino','masculino','no definido') CHARACTER SET utf8 COLLATE utf8_spanish_ci DEFAULT 'no definido',
-  `info_autor` text CHARACTER SET utf8 COLLATE utf8_spanish_ci
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Volcado de datos para la tabla `autores`
---
-
-INSERT INTO `autores` (`id_autor`, `fk_id_usuario`, `foto_perfil`, `genero`, `info_autor`) VALUES
-(1, 5, 'default.png', 'no definido', NULL);
+INSERT INTO `articulos` (`id_articulo`, `fk_id_usuario`, `titulo`, `extracto`, `fecha`, `contenido`, `foto_portada`, `fk_id_categoria`) VALUES
+(2, 5, 'Golpeado pero no vencido', 'Que estamos atribulados en todo, mas no angustiados; en apuros, mas no desesperados; perseguidos, mas no desamparados; derribados, pero no destruidos...', '2019-06-12 03:49:15', 'Una afliccion trae un sentimiento persistente de angustia y desesperacion. No deseamos que ninguna preocupacion pequena y temporal crezca y se convierta en una situacion permanente, persistente, que asesine nuestro deseo de vivir. Una afliccion puede destruirnos si lo permitimos. Lo que nos ampara y protege contra la corrosiva fuerza de cualquier afliccion, es la presencia de Dios en nuestras vidas. Su presencia determina si la afliccion desaparece, o nos destruye. El poder de Dios en nuestras almas nos dice si la situacion no pasara de ser solo una preocupacion. Sin la presencia de Dios en nuestros corazones cualquier afliccion nos puede llevar a la locura y hasta la muerte. Con Dios en nuestras vidas, tal vez seremos perseguidos, pero jamas nos sentiremos abandonados, seremos golpeados por circunstancias que parecen imposibles, pero por aferrarnos a su amor y perdon, jamas seremos derribados. Se con certeza que estas palabras son ciertas, y te dire por que. Cuando conoces a Dios, tu sabes con certeza que algo mayor, mas grande, mas fuerte que tu esta en control de tu vida, de tu futuro, de tu destino. \"...Entonces, que diremos a esto? Si Dios esta por nosotros, quien estara contra nosotros?\" Romanos 8:31 No te sientas culpable por \"sentirte afligido\", o por reconocer que en verdad has sido golpeado y que los golpes recibidos duelen. Claro que duelen. No tengas temor de reconocer que temporalmente te encuentras confundido, atacado por dudas y que el sentimiento de angustia pelea contra la paz de Dios en lo mas profundo de tu alma. Estas en la lucha, y estas sufriendo dolor, pero no seras derrotado, no seras vencido.', 'golpeado.jpg', 3);
 
 -- --------------------------------------------------------
 
@@ -93,21 +72,6 @@ INSERT INTO `categorias` (`id_categoria`, `nombre_categoria`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura Stand-in para la vista `detalles artículo`
--- (Véase abajo para la vista actual)
---
-CREATE TABLE `detalles artículo` (
-`nombre_categoria` varchar(191)
-,`titulo` varchar(191)
-,`extracto` varchar(200)
-,`nombre_usuario` varchar(16)
-,`foto_perfil` varchar(200)
-,`foto_portada` varchar(200)
-);
-
--- --------------------------------------------------------
-
---
 -- Estructura de tabla para la tabla `usuarios`
 --
 
@@ -117,17 +81,18 @@ CREATE TABLE `usuarios` (
   `correo` varchar(76) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
   `verificado` enum('0','1') CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL DEFAULT '0',
   `contrasena` varchar(500) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `tipo_usuario` enum('admin','autor') CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL DEFAULT 'autor'
+  `tipo_usuario` enum('admin','autor') CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL DEFAULT 'autor',
+  `foto_perfil` varchar(200) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL DEFAULT 'default.png',
+  `genero` enum('femenino','masculino','no definido') CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL DEFAULT 'no definido',
+  `info_usuario` text CHARACTER SET utf8 COLLATE utf8_spanish_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `correo`, `verificado`, `contrasena`, `tipo_usuario`) VALUES
-(5, 'juan daniel', 'snoopdjffny@gmail.com', '0', 'f00fe6ae6cec917d69b08459395a09ccb12580d4397ee1fea9dc0465b25406c98c4b5e22256e624bdfbc111b6697930c262d4fbc0ea4c868d2b7ee5f6df8f5a3', 'autor');
-
--- --------------------------------------------------------
+INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `correo`, `verificado`, `contrasena`, `tipo_usuario`, `foto_perfil`, `genero`, `info_usuario`) VALUES
+(5, 'juan daniel', 'snoopdjffny@gmail.com', '0', 'f00fe6ae6cec917d69b08459395a09ccb12580d4397ee1fea9dc0465b25406c98c4b5e22256e624bdfbc111b6697930c262d4fbc0ea4c868d2b7ee5f6df8f5a3', 'autor', 'juan.png', 'masculino', 'Web Developer | Parral, Chihuahua');
 
 --
 -- Índices para tablas volcadas
@@ -138,15 +103,8 @@ INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `correo`, `verificado`, 
 --
 ALTER TABLE `articulos`
   ADD PRIMARY KEY (`id_articulo`),
-  ADD KEY `articulos_fk_id_autor_foreign` (`fk_id_autor`),
-  ADD KEY `categorias_fk_id_categoria_foreign` (`fk_id_categoria`);
-
---
--- Indices de la tabla `autores`
---
-ALTER TABLE `autores`
-  ADD PRIMARY KEY (`id_autor`),
-  ADD KEY `autores_fk_id_usuario_foreign` (`fk_id_usuario`);
+  ADD KEY `categorias_fk_id_categoria_foreign` (`fk_id_categoria`),
+  ADD KEY `articulos_fk_id_usuario_foreign` (`fk_id_usuario`);
 
 --
 -- Indices de la tabla `categorias`
@@ -170,13 +128,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `articulos`
 --
 ALTER TABLE `articulos`
-  MODIFY `id_articulo` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT de la tabla `autores`
---
-ALTER TABLE `autores`
-  MODIFY `id_autor` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_articulo` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `categorias`
@@ -198,14 +150,8 @@ ALTER TABLE `usuarios`
 -- Filtros para la tabla `articulos`
 --
 ALTER TABLE `articulos`
-  ADD CONSTRAINT `articulos_fk_id_autor_foreign` FOREIGN KEY (`fk_id_autor`) REFERENCES `autores` (`id_autor`) ON DELETE CASCADE,
+  ADD CONSTRAINT `articulos_fk_id_usuario_foreign` FOREIGN KEY (`fk_id_usuario`) REFERENCES `usuarios` (`id_usuario`) ON DELETE CASCADE,
   ADD CONSTRAINT `categorias_fk_id_categoria_foreign` FOREIGN KEY (`fk_id_categoria`) REFERENCES `categorias` (`id_categoria`) ON DELETE CASCADE;
-
---
--- Filtros para la tabla `autores`
---
-ALTER TABLE `autores`
-  ADD CONSTRAINT `autores_fk_id_usuario_foreign` FOREIGN KEY (`fk_id_usuario`) REFERENCES `usuarios` (`id_usuario`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
