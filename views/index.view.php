@@ -23,8 +23,8 @@
             </button>
             
             <a href="login.php">Iniciar sesión</a>
-            <a href="#">Acerca de</a>
-            <a href="#">Contacto</a>
+            <a href="about.php">Acerca de</a>
+            <a href="contact.php">Contacto</a>
         </nav>
         
         <button class="hidden-menu" id="open">
