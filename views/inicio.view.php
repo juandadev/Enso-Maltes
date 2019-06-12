@@ -12,18 +12,18 @@ if (isset($_SESSION['usuario'])) {
     <section class="rank">
         <div class="container">
             <div class="cover">
-                <img src="users/articles/<?php print_r($principal['foto_portada']); ?>" alt="<?php print_r($principal['titulo']); ?>">
+                <a href="article.php?id=<?php print_r($principal['id_articulo']) ?>"><img src="users/articles/<?php print_r($principal['foto_portada']); ?>" alt="<?php print_r($principal['titulo']); ?>"></a>
             </div>
 
             <div class="wrap">
                 <div class="info">
-                    <h3><?php print_r($principal['titulo']); ?></h3>
+                    <h3><a href="article.php?id=<?php print_r($principal['id_articulo']) ?>"><?php print_r($principal['titulo']); ?></a></h3>
 
                     <p><?php print_r($principal['extracto']); ?></p>
                 </div>
 
                 <div class="footer-rank">
-                    <a href="#">Seguir leyendo</a>
+                    <a href="article.php?id=<?php print_r($principal['id_articulo']) ?>">Seguir leyendo</a>
 
                     <div class="author">
                         <div class="pic">
@@ -37,7 +37,7 @@ if (isset($_SESSION['usuario'])) {
         </div>
 
         <div class="nav-rank">
-            <?php foreach($posts as $post): ?>
+            <?php foreach($array_posts as $post): ?>
             <div class="nav-rank-item">
                 <a href="#"><?php echo $post['titulo']; ?></a>
             </div>
@@ -50,7 +50,7 @@ if (isset($_SESSION['usuario'])) {
         <div class="item-prev">
             <h4><?php echo $post['nombre_categoria']; ?></h4>
 
-            <h3><?php echo $post['titulo']; ?></h3>
+            <h3><a href="article.php?id=<?php echo $post['id_articulo'] ?>"><?php echo $post['titulo']; ?></a></h3>
 
             <p><?php echo $post['extracto']; ?></p>
 

@@ -138,9 +138,13 @@ nav a:hover,
 .info h3 {
     font-family: Lora;
     font-size: 38px;
-    color: #707070;
     font-weight: 100;
     cursor: pointer;
+}
+
+.info a {
+    text-decoration: none;
+    color: #707070;
 }
 
 .info p {
@@ -259,9 +263,13 @@ nav a:hover,
 
 .item-prev h3 {
     text-align: center;
-    color: #707070;
     font-family: Lora;
     cursor: pointer;
+}
+
+.item-prev h3 a {
+    text-decoration: none;
+    color: #707070;
 }
 
 .item-prev p {
@@ -274,10 +282,6 @@ nav a:hover,
     -ms-flex-pack: justify;
     justify-content: space-between;
     color: #707070;
-}
-
-.stats i {
-    cursor: pointer;
 }
 
 .stats p {
