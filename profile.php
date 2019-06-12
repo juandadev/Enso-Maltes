@@ -20,7 +20,11 @@ if (!$user) {
     header('Location: error.php?e=3');
 }
 
-$posts = postsAutor($id_usuario, $con);
+$posts = postsAutor($id_usuario, $con, $blog_config['posts_per_page']);
+
+if (!$posts) {
+    header('Location: error.php?e=4');
+}
 
 require 'views/profile.view.php';
 ?>

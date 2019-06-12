@@ -60,6 +60,10 @@ if (isset($_SESSION['usuario'])) {
     <h2 class="no_p">No hay articulos de este usuario todvía!</h2>
     <?php endif; ?>
     </section>
+    
+    <?php
+    require 'views/paginacion_perfil.php';
+    ?>
 </main>
 
 <?php

@@ -76,8 +76,8 @@ if (isset($_SESSION['usuario'])) {
     </section>
 
     <?php
-        require 'paginacion.php';
-        ?>
+    require 'views/paginacion_inicio.php';
+    ?>
 </main>
 
 <?php
