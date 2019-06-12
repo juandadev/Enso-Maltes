@@ -130,13 +130,6 @@ INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `correo`, `verificado`, 
 -- --------------------------------------------------------
 
 --
--- Estructura para la vista `detalles artículo`
---
-DROP TABLE IF EXISTS `detalles artículo`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `detalles artículo`  AS  select `categorias`.`nombre_categoria` AS `nombre_categoria`,`articulos`.`titulo` AS `titulo`,`articulos`.`extracto` AS `extracto`,`usuarios`.`nombre_usuario` AS `nombre_usuario`,`autores`.`foto_perfil` AS `foto_perfil`,`articulos`.`foto_portada` AS `foto_portada` from (((`articulos` join `categorias` on((`articulos`.`fk_id_categoria` = `categorias`.`id_categoria`))) join `autores` on((`articulos`.`fk_id_autor` = `autores`.`id_autor`))) join `usuarios` on((`autores`.`fk_id_usuario` = `usuarios`.`id_usuario`))) ;
-
---
 -- Índices para tablas volcadas
 --
 
