@@ -56,11 +56,11 @@ if (isset($_SESSION['usuario'])) {
 
             <div class="stats">
                 <i class="fas fa-eye">
-                    <p>1,236</p>
+                    <p><?php echo $post['visitas']; ?></p>
                 </i>
 
                 <i class="fas fa-comment-alt">
-                    <p>56</p>
+                    <p>0</p>
                 </i>
             </div>
 

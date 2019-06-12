@@ -10,7 +10,7 @@ if (!$con) {
 
 $posts = obtenerPost($blog_config['posts_per_page'], $con);
 $principal = $posts[0];
-$array_posts = array_slice($posts, 0, 3);
+$array_posts = array_slice($posts, 0, 4);
 
 if (!$posts) {
     header('Location: error.php?e=1');

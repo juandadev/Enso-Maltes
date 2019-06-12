@@ -23,7 +23,7 @@ function actual() {
 
 function obtenerPost($post_per_page, $con) {
     $inicio = (actual() > 1) ? actual() * $post_per_page - $post_per_page : 0;
-    $sentence = $con->prepare("SELECT usuarios.id_usuario, categorias.nombre_categoria, articulos.id_articulo, articulos.titulo, articulos.extracto, usuarios.nombre_usuario, usuarios.foto_perfil, articulos.foto_portada FROM articulos INNER JOIN categorias ON articulos.fk_id_categoria=categorias.id_categoria INNER JOIN usuarios ON articulos.fk_id_usuario=usuarios.id_usuario LIMIT $inicio, $post_per_page");
+    $sentence = $con->prepare("SELECT usuarios.id_usuario, categorias.nombre_categoria, articulos.id_articulo, articulos.titulo, articulos.extracto, articulos.visitas, usuarios.nombre_usuario, usuarios.foto_perfil, articulos.foto_portada FROM articulos INNER JOIN categorias ON articulos.fk_id_categoria=categorias.id_categoria INNER JOIN usuarios ON articulos.fk_id_usuario=usuarios.id_usuario LIMIT $inicio, $post_per_page");
     $sentence->execute();
     return $sentence->fetchAll();
 }
@@ -37,7 +37,7 @@ function profile($id) {
 }
 
 function idPost($con, $id) {
-    $result = $con->query("SELECT articulos.titulo, articulos.fecha, articulos.foto_portada, articulos.contenido, usuarios.foto_perfil, usuarios.nombre_usuario FROM articulos INNER JOIN usuarios ON articulos.fk_id_usuario=usuarios.id_usuario WHERE articulos.id_articulo = $id LIMIT 1");
+    $result = $con->query("SELECT usuarios.id_usuario, articulos.titulo, articulos.fecha, articulos.foto_portada, articulos.contenido, usuarios.foto_perfil, usuarios.nombre_usuario FROM articulos INNER JOIN usuarios ON articulos.fk_id_usuario=usuarios.id_usuario WHERE articulos.id_articulo = $id LIMIT 1");
     $result = $result->fetchAll();
     return ($result) ? $result : false;
 }
@@ -72,4 +72,25 @@ function mailExists($email, $con) {
     $result = $result->fetchAll();
     return ($result) ? true : false;
 }
+
+function postsAutor($id, $con) {
+    $result = $con->prepare("SELECT articulos.id_articulo, articulos.fk_id_usuario, articulos.titulo, articulos.extracto, articulos.visitas, categorias.nombre_categoria FROM articulos INNER JOIN categorias ON articulos.fk_id_categoria = categorias.id_categoria WHERE fk_id_usuario = $id");
+    $result->execute();
+    return $result->fetchAll();
+}
+
+function contarVisitas($id, $con) {
+    $result = $con->prepare("SELECT * FROM articulos WHERE id_articulo = $id");
+    $result->execute();
+    $result = $result->fetchAll();
+    
+    $visita = $result[0];
+    $contar = $visita['visitas'] + 1;
+    
+    $result = $con->prepare('UPDATE articulos SET visitas = '.$contar.' WHERE id_articulo = '.$id);
+    $result->execute();
+    
+    return $visita;
+}
+//UPDATE `articulos` SET `visitas` = 10 WHERE id_articulo = 2
 ?>

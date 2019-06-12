@@ -17,7 +17,8 @@ nav,
 .nav-rank,
 .preview,
 .stats,
-.stats i {
+.stats i,
+.editar_foto {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -255,8 +256,12 @@ nav a:hover {
 
 .item-prev h4 {
     text-align: center;
-    color: #c9c9c9;
     cursor: pointer;
+}
+
+.item-prev h4 a {
+    text-decoration: none;
+    color: #c9c9c9;
 }
 
 .item-prev h3 {
@@ -385,6 +390,81 @@ nav a:hover {
 }
 
 .error {
+    margin-bottom: 100px;
+}
+
+/* Perfil */
+main .pp {
+    width: 350px;
+    margin: auto;
+}
+
+main .pp img {
+    width: 100%;
+    border-radius: 1000px;
+    margin-top: -120px;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+}
+
+main .editar_foto {
+    margin-top: 100px;
+    border-top: solid 3px #c9c9c9;
+    flex-direction: column;
+}
+
+main .editar_foto .load_p {
+    width: 70px;
+    height: 70px;
+    display: block;
+    background-color: #385D66;
+    border: none;
+    border-radius: 50px;
+    margin: auto;
+    margin-top: -60px;
+    margin-left: 55%;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+}
+
+main .editar_foto .load_p i {
+    color: #fff;
+    font-size: 30px;
+}
+
+main .profile_container {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+main .profile_container h2 {
+    font-size: 58px;
+    color: #707070;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+
+main .profile_container p {
+    font-size: 28px;
+    color: #c9c9c9;
+    margin-bottom: 20px;
+}
+
+main .profile_container .gender {
+    text-transform: capitalize;
+}
+
+main .profile_container a {
+    text-decoration: none;
+    color: #707070;
+    transition: 0.3s ease;
+}
+
+main .profile_container a:hover {
+    opacity: 0.5;
+}
+
+main .no_p {
+    color: #707070;
+    text-align: center;
     margin-bottom: 100px;
 }
 

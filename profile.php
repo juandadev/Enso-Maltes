@@ -20,5 +20,7 @@ if (!$user) {
     header('Location: error.php?e=3');
 }
 
+$posts = postsAutor($id_usuario, $con);
+
 require 'views/profile.view.php';
 ?>

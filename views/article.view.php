@@ -19,7 +19,7 @@ if (isset($_SESSION['usuario'])) {
 
         <div class="author">
             <div class="pic">
-                <img src="users/profile/<?php echo $post['foto_perfil']; ?>" alt="<?php echo $post['nombre_usuario']; ?>">
+                <a href="profile.php?id=<?php echo $post['id_usuario']; ?>"><img src="users/profile/<?php echo $post['foto_perfil']; ?>" alt="<?php echo $post['nombre_usuario']; ?>"></a>
             </div>
 
             <p><?php echo $post['nombre_usuario']; ?></p>

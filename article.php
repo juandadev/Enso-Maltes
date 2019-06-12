@@ -21,5 +21,8 @@ if (!$post) {
 
 $post = $post[0];
 
+contarVisitas($id_articulo, $con);
+
+
 require 'views/article.view.php';
 ?>
