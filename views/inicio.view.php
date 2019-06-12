@@ -27,7 +27,7 @@ if (isset($_SESSION['usuario'])) {
 
                     <div class="author">
                         <div class="pic">
-                            <img src="users/profile/<?php print_r($principal['foto_perfil']); ?>" alt="<?php print_r($principal['nombre_usuario']); ?>">
+                            <a href="profile.php?id=<?php print_r($principal['id_usuario']); ?>"><img src="users/profile/<?php print_r($principal['foto_perfil']); ?>" alt="<?php print_r($principal['nombre_usuario']); ?>"></a>
                         </div>
 
                         <p><?php print_r($principal['nombre_usuario']); ?></p>
@@ -66,7 +66,7 @@ if (isset($_SESSION['usuario'])) {
 
             <div class="author">
                 <div class="pic">
-                    <img src="users/profile/<?php echo $post['foto_perfil']; ?>" alt="<?php echo $post['nombre_usuario']; ?>">
+                    <a class="nh" href="profile.php?id=<?php print_r($post['id_usuario']); ?>"><img src="users/profile/<?php echo $post['foto_perfil']; ?>" alt="<?php echo $post['nombre_usuario']; ?>"></a>
                 </div>
 
                 <p><?php echo $post['nombre_usuario']; ?></p>

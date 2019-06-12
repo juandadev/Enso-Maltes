@@ -23,7 +23,7 @@ function actual() {
 
 function obtenerPost($post_per_page, $con) {
     $inicio = (actual() > 1) ? actual() * $post_per_page - $post_per_page : 0;
-    $sentence = $con->prepare("SELECT categorias.nombre_categoria, articulos.id_articulo, articulos.titulo, articulos.extracto, usuarios.nombre_usuario, usuarios.foto_perfil, articulos.foto_portada FROM articulos INNER JOIN categorias ON articulos.fk_id_categoria=categorias.id_categoria INNER JOIN usuarios ON articulos.fk_id_usuario=usuarios.id_usuario LIMIT $inicio, $post_per_page");
+    $sentence = $con->prepare("SELECT usuarios.id_usuario, categorias.nombre_categoria, articulos.id_articulo, articulos.titulo, articulos.extracto, usuarios.nombre_usuario, usuarios.foto_perfil, articulos.foto_portada FROM articulos INNER JOIN categorias ON articulos.fk_id_categoria=categorias.id_categoria INNER JOIN usuarios ON articulos.fk_id_usuario=usuarios.id_usuario LIMIT $inicio, $post_per_page");
     $sentence->execute();
     return $sentence->fetchAll();
 }
@@ -32,8 +32,18 @@ function article($id) {
     return (int)limpiarDatos($id);
 }
 
+function profile($id) {
+    return (int)limpiarDatos($id);
+}
+
 function idPost($con, $id) {
     $result = $con->query("SELECT articulos.titulo, articulos.fecha, articulos.foto_portada, articulos.contenido, usuarios.foto_perfil, usuarios.nombre_usuario FROM articulos INNER JOIN usuarios ON articulos.fk_id_usuario=usuarios.id_usuario WHERE articulos.id_articulo = $id LIMIT 1");
+    $result = $result->fetchAll();
+    return ($result) ? $result : false;
+}
+
+function idUser($con, $id) {
+    $result = $con->query("SELECT * FROM usuarios WHERE id_usuario = '$id'");
     $result = $result->fetchAll();
     return ($result) ? $result : false;
 }
