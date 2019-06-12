@@ -50,16 +50,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $statement = $con->prepare("INSERT INTO usuarios (id_usuario, nombre_usuario, correo, contrasena) VALUES (null, '$user', '$email', '$password')");
         $statement->execute();
         
-//        Busqueda del dato insertado
-        $statement = $con->prepare("SELECT * FROM usuarios WHERE nombre_usuario = '$user' LIMIT 1");
-        $statement->execute();
-        $result = $statement->fetch();
-        $autor = $result['id_usuario'];
-        
-//        Creando autor referente al usuario
-        $statement = $con->prepare("INSERT INTO autores (id_autor, fk_id_usuario) VALUES (null, '$autor')");
-        $statement->execute();
-        
         header('Location: login.php');
     }
 }
