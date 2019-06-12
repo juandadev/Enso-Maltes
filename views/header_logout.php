@@ -25,6 +25,6 @@
             <a href="about.php">Acerca de</a>
             <a href="contact.php">Contacto</a>
 
-            <button class="btnLogout" id="btnLogin">Cerrar sesión</button>
+            <button class="btnLogout" id="btnLogout">Cerrar sesión</button>
         </nav>
     </header>
