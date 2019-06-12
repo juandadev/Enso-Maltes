@@ -18,6 +18,10 @@ if (isset($_SESSION['usuario'])) {
     <p><?php print_r($user['genero']); ?></p>
     
     <p><?php print_r($user['info_usuario']); ?></p>
+    
+    <?php if ($_SESSION['usuario'] == $user['id_usuario']): ?>
+        <a href="editProfile.php">Editar perfil</a>
+    <?php endif; ?>
 </main>
 
 <?php
