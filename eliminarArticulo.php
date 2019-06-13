@@ -18,6 +18,12 @@
 <body>
 <form  action="eliminarArticuloBD.php"  method = "POST" >
 	<?php  
+		session_start();
+	if (isset($_SESSION['usuario'])) {
+    require 'views/header_logout.php';
+} else {
+    require 'views/header_login.php';
+}
 		$conexion = new mysqli("localhost", "root", "root", "enso_maltes");
 			
 			if ($conexion->connect_error) {
@@ -25,7 +31,7 @@
 			} 
 			//Mostrar los artículos del usuario por su id guardado en el localStorage
 
-			$consulta = 'select * from articulos';
+			$consulta = 'select * from articulos where fk_id_usuario='.$_SESSION['usuario'];
 			
 			$result = $conexion->query($consulta);			
 

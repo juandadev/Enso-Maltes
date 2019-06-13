@@ -1,5 +1,10 @@
 <?php
-	//Falta checar la sesión
+			session_start();
+	if (isset($_SESSION['usuario'])) {
+    require 'views/header_logout.php';
+} else {
+    require 'views/header_login.php';
+}
 
 if(filter_input(INPUT_POST, 'eliminar')){
 
