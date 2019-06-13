@@ -20,15 +20,13 @@ if (!$user) {
     header('Location: error.php?e=3');
 }
 
-$posts = postsAutor($id_usuario, $con, $blog_config['posts_per_page']);
+$posts = postsAutor($id_usuario, $con);
 
 if (!$posts) {
     header('Location: error.php?e=4');
 }
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)) {
-//    $check = @getimagesize($_FILES['loadImg']['tmp_name']);
-    
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)) {    
     if ($_FILES['loadImg']['error'] > 0) {
         $error = 'Ha ocurrido un error al subir la imagen';
     } else {
@@ -58,12 +56,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)) {
             $error = 'Este tipo de archivo no está permitido';
         }
     }
-    
-    /*if ($check !== false) {
-        $destination = 'users/profile/';
-        $uploaded_file = $destination . $_FILES['loadImg']['name'];
-        echo $uploaded_file;
-    }*/
 }
 
 require 'views/profile.view.php';

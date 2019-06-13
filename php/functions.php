@@ -28,9 +28,8 @@ function obtenerPost($post_per_page, $con) {
     return $sentence->fetchAll();
 }
 
-function postsAutor($id, $con, $posts_per_page) {
-    $inicio = (actual() > 1) ? actual() * $post_per_page - $post_per_page : 0;
-    $result = $con->prepare("SELECT articulos.id_articulo, articulos.fk_id_usuario, articulos.titulo, articulos.extracto, articulos.visitas, categorias.nombre_categoria FROM articulos INNER JOIN categorias ON articulos.fk_id_categoria = categorias.id_categoria WHERE fk_id_usuario = $id LIMIT $inicio, $posts_per_page");
+function postsAutor($id, $con) {
+    $result = $con->prepare("SELECT articulos.id_articulo, articulos.fk_id_usuario, articulos.titulo, articulos.extracto, articulos.visitas, categorias.nombre_categoria FROM articulos INNER JOIN categorias ON articulos.fk_id_categoria = categorias.id_categoria WHERE fk_id_usuario = $id");
     $result->execute();
     return $result->fetchAll();
 }
@@ -57,15 +56,6 @@ function idUser($con, $id) {
 
 function noPaginas($post_per_page, $con) {
     $total_post = $con->prepare('SELECT COUNT(id_articulo) as total FROM articulos');
-    $total_post->execute();
-    $total_post = $total_post->fetch()['total'];
-    
-    $paginas = ceil($total_post / $post_per_page);
-    return $paginas;
-}
-
-function noPaginasAutor($posts_per_page, $con, $id) {
-    $total_post = $con->prepare("SELECT COUNT(id_articulo) AS total FROM articulos WHERE fk_id_usuario = $id");
     $total_post->execute();
     $total_post = $total_post->fetch()['total'];
     
