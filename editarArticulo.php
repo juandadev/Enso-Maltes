@@ -31,6 +31,8 @@ require 'private/config.php';
 	
     $editA = editar($con, $_GET['idA']);
     $editA = $editA[0];
+    
+    $cats = categorias($con);
 /*if(filter_input(INPUT_POST, 'modificar')){
 
 
@@ -93,25 +95,11 @@ require 'private/config.php';
             <textarea class="extractoA" name="extracto" placeholder="Opcional: Escriba una breve introducción de su texto"><?php print_r($editA['extracto']); ?></textarea><br>
 
             <textarea class="contenidoA" name="editor_content" id="myEditor" enctype="multipart/form-data"><?php print_r($editA['contenido']); ?></textarea>
-
+            
             <div class="categoriaA">
-                <input id="arte" type="radio" name="genero" value="4" checked><span class="customRadio"></span><label for="arte">Arte</label>
-
-                <input id="filosofia" type="radio" name="genero" value="3"><span class="customRadio"></span><label for="filosofia">Filosofía</label>
-
-                <input id="ciencia" type="radio" name="genero" value="3"><span class="customRadio"></span><label for="ciencia">Ciencia</label>
-
-                <input id="musica" type="radio" name="genero" value="4"><span class="customRadio"></span><label for="musica">Música</label>
-
-                <input id="misticismo" type="radio" name="genero" value="6"><span class="customRadio"></span><label for="misticismo">Misticismo</label>
-
-                <input id="tecnologia" type="radio" name="genero" value="6"><span class="customRadio"></span><label for="tecnologia">Tecnología</label>
-
-                <input id="salud" type="radio" name="genero" value="5"><span class="customRadio"></span> <label for="salud">Salud</label>
-
-                <input id="politica" type="radio" name="genero" value="2"> <span class="customRadio"></span><label for="politica">Politica</label>
-
-                <input id="drogas" type="radio" name="genero" value="9"><span class="customRadio"></span><label for="drogas">Drogas</label>
+                <?php foreach ($cats as $cat): ?>
+                <input id="<?php print_r($cat['nombre_categoria']); ?>" type="radio" name="genero" value="<?php print_r($cat['id_categoria']); ?>" checked><span class="customRadio"></span><label for="<?php print_r($cat['nombre_categoria']); ?>"><?php print_r($cat['nombre_categoria']); ?></label>
+                <?php endforeach; ?>
             </div>
             
             <input type="hidden" name="id" value="<?php print_r($editA['id_articulo']); ?>">
