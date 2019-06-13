@@ -8,6 +8,9 @@ if (isset($_SESSION['usuario'])) {
 }
 ?>
 
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v3.3"></script>
+
 <main>
     <div class="articulo">
         <div class="portada">
@@ -28,6 +31,10 @@ if (isset($_SESSION['usuario'])) {
         <?php echo html_entity_decode($post['contenido']); ?>
 
     </div>
+    
+    <?php
+    echo '<div class="fb-comments" data-href=http://localhost'.$_SERVER["REQUEST_URI"].' data-width="100%" data-numposts="10"></div>';
+    ?>
 </main>
 
 <script src="js/principal.js"></script>

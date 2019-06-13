@@ -37,6 +37,9 @@ if (isset($_SESSION['usuario'])) {
 
 <body>
 
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v3.3"></script>
+
     <main>
 
         <form class="nuevoA" action="guardarInfoBD.php" method="POST">
@@ -68,9 +71,7 @@ if (isset($_SESSION['usuario'])) {
             imageUploadURL: 'guardarImagen.php',
 
             // Additional upload params.
-            imageUploadParams: {
-                id: 'my_editor'
-            },
+            imageUploadParams: {},
 
             // Set request type.
             imageUploadMethod: 'POST',
@@ -82,56 +83,31 @@ if (isset($_SESSION['usuario'])) {
             imageAllowedTypes: ['jpeg', 'jpg', 'png'],
 
             events: {
-                'image.beforeUpload': function(images) {
-                    alert('Before');
-                },
-                'image.uploaded': function(response) {
-                    alert('aquí 1');
-                },
-                'image.inserted': function($img, response) {
-                    // Image was inserted in the editor.
-                    alert('aquí 2');
-                },
-                'image.replaced': function($img, response) {
-                    // Image was replaced in the editor.
-                    alert('aquí 3');
-                },
+                'image.beforeUpload': function(images) {},
+                'image.uploaded': function(response) {},
+                'image.inserted': function($img, response) {},
+                'image.replaced': function($img, response) {},
                 'image.error': function(error, response) {
                     // Bad link.
-                    alert('aquí 4');
-                    if (error.code == 1) {
-                        alert('error 1');
-                    }
+                    if (error.code == 1) {}
 
                     // No link in upload response.
-                    else if (error.code == 2) {
-                        alert('error 2');
-                    }
+                    else if (error.code == 2) {}
 
                     // Error during image upload.
-                    else if (error.code == 3) {
-                        alert('error 3');
-                    }
+                    else if (error.code == 3) {}
 
                     // Parsing response failed.
-                    else if (error.code == 4) {
-                        alert('error 4');
-                    }
+                    else if (error.code == 4) {}
 
                     // Image too text-large.
-                    else if (error.code == 5) {
-                        alert('error 5');
-                    }
+                    else if (error.code == 5) {}
 
                     // Invalid image type.
-                    else if (error.code == 6) {
-                        alert('error 6');
-                    }
+                    else if (error.code == 6) {}
 
                     // Image can be uploaded only to same domain in IE 8 and IE 9.
-                    else if (error.code == 7) {
-                        alert('error 7');
-                    }
+                    else if (error.code == 7) {}
 
                     // Response contains the original server response to the request if available.
                 }

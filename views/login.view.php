@@ -37,6 +37,7 @@
                         <input type="password" name="passw">
                     </label>
 
+<!--
                     <label class="lblCheck">
                         <input type="checkbox" name="remember">
 
@@ -44,6 +45,7 @@
 
                         <p>RECORDAR</p>
                     </label>
+-->
 
                     <?php if(!empty($errors)): ?>
                     <div class="errors">
