@@ -16,7 +16,18 @@ if (isset($_SESSION['usuario'])) {
             </div>
 
             <?php if ($_SESSION['usuario'] == $user['id_usuario']): ?>
-            <button class="load_p"><i class="fas fa-edit"></i></button>
+            <form method="POST" enctype="multipart/form-data" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>?id=<?php print_r($user['id_usuario']); ?>">
+                <label for="loadImg">
+                    <input type="file" class="load_p" id="loadImg" name="loadImg" onchange="this.form.submit();"></input>
+                    <i class="fas fa-edit"></i>
+                </label>
+            </form>
+            
+                <?php if(!empty($error)): ?>
+                <div class="errors">
+                    <p><?php echo $error; ?></p>
+                </div>
+                <?php endif; ?>
             <?php endif; ?>
         </div>
 
