@@ -42,7 +42,7 @@ if (isset($_SESSION['usuario'])) {
         </div>
 
         <?php if ($_SESSION['usuario'] == $user['id_usuario']): ?>
-        <a href="editProfile.php">Editar datos</a>
+        <a href="editProfile.php?id=<?php echo $_SESSION['usuario'];?>">Editar datos</a>
         <?php endif; ?>
     </div>
 

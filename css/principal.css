@@ -21,7 +21,8 @@ nav,
 .editar_foto,
 .nuevoA,
 .categoriaA,
-.controlA {
+.controlA,
+.profile_container form {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -485,6 +486,55 @@ main .editar_foto label i {
     font-size: 30px;
     margin-top: 20px;
     margin-left: 5px;
+}
+
+.profile_container form {
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.profile_container form input[type="text"],
+.profile_container form select {
+    margin: 0px auto 20px;
+    padding: 10px;
+    font-size: 38px;
+    border: 1px solid #c9c9c9;
+    border-radius: 10px;
+    text-align: center;
+    text-transform: capitalize;
+    font-family: Lato;
+    color: #707070;
+}
+
+.profile_container form textarea {
+    resize: none;
+    width: 500px;
+    height: 100px;
+    margin: 0px auto 20px;
+    padding: 10px;
+    border: 1px solid #c9c9c9;
+    border-radius: 10px;
+    font-family: Lato;
+    color: #707070;
+    font-size: 20px;
+}
+
+.profile_container form button {
+    display: block;
+    margin: auto;
+    padding: 10px 20px;
+    font-size: 22px;
+    border: none;
+    border-radius: 150px;
+    background: #385D66;
+    color: #fff;
+    font-family: Lato;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.profile_container form button:hover {
+    opacity: 0.5;
 }
 
 main .profile_container {

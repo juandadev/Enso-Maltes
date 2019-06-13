@@ -24,7 +24,6 @@
 
         <nav>
             <a href="profile.php?id=<?php echo $_SESSION['usuario']; ?>">Perfil</a>
-            <a href="javascript:void(0)" class="closebtn">Categorías</a>
             <a href="about.php">Acerca de</a>
             <a href="contact.php">Contacto</a>
 

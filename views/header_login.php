@@ -24,7 +24,6 @@ error_reporting(0);
         </a>
 
         <nav>
-            <a href="javascript:void(0)" class="closebtn">Categorías</a>
             <a href="about.php">Acerca de</a>
             <a href="contact.php">Contacto</a>
 

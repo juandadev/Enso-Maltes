@@ -109,4 +109,15 @@ function loadImageProfile($con, $image, $id) {
     $statement = $con->prepare("UPDATE usuarios SET foto_perfil = '$image' WHERE id_usuario = $id");
     $statement->execute();
 }
+
+function activation($con, $code) {
+    $result = $con->prepare("SELECT id_usuario FROM usuarios WHERE token = $code");
+    $result->execute();
+    return $result->fetchAll();
+}
+
+function editProfile($con, $id, $nombre, $genero, $info) {
+    $statement = $con->prepare("UPDATE usuarios SET nombre_usuario = '".$nombre."', genero = '".$genero."', info_usuario = '".$info."' WHERE id_usuario = $id");
+    $statement->execute();
+}
 ?>
