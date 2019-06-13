@@ -1,10 +1,12 @@
 <?php
+session_start();
 	//Falta checar la sesión
+require 'private/config.php';
 
 if(filter_input(INPUT_POST, 'eliminar')){
 
 
-	$enlace = mysqli_connect("localhost", "juan", "juan15410596", "enso_maltes");
+	$enlace = mysqli_connect("localhost", $db_config['user'], $db_config['pass'], "enso_maltes");
 
 if ($enlace->connect_error) {
     die("La conexión falló: " . $enlace->connect_error);

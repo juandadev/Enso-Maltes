@@ -6,10 +6,12 @@
     require 'views/header_login.php';
 }
 
+require 'private/config.php';
+
 if(filter_input(INPUT_POST, 'editor_content') AND filter_input(INPUT_POST, 'titulo') AND filter_input(INPUT_POST, 'genero')AND filter_input(INPUT_POST, 'extracto') AND filter_input(INPUT_POST, 'id')){
 
 
-	$enlace = mysqli_connect("localhost", "juan", "juan15410596", "enso_maltes");
+	$enlace = mysqli_connect("localhost", $db_config['user'], $db_config['pass'], "enso_maltes");
 
 if ($enlace->connect_error) {
     die("La conexión falló: " . $enlace->connect_error);

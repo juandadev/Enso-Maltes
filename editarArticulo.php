@@ -20,7 +20,7 @@ require 'private/config.php';
 if(filter_input(INPUT_POST, 'modificar')){
 
 
-		$enlace = mysqli_connect("localhost", 'juan', 'juan15410596', "enso_maltes");
+		$enlace = mysqli_connect("localhost", $db_config['user'], $db_config['pass'], "enso_maltes");
 			
 			if ($enlace->connect_error) {
 			    die("La conexion falló: " . $conexion->connect_error);

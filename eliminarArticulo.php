@@ -18,16 +18,18 @@
 <body>
 <form  action="eliminarArticuloBD.php"  method = "POST" >
 	<?php  
+    session_start();
+    
     require 'private/config.php';
     
-		$conexion = new mysqli("localhost", 'juan', 'juan15410596', "enso_maltes");
+		$conexion = new mysqli("localhost", $db_config['user'], $db_config['pass'], "enso_maltes");
 			
 			if ($conexion->connect_error) {
 			    die("La conexion falló: " . $conexion->connect_error);
 			} 
 			//Mostrar los artículos del usuario por su id guardado en el localStorage
 
-			$consulta = 'select * from articulos';
+			$consulta = 'select * from articulos where fk_id_usuario = '.$_SESSION['usuario'];
 			
 			$result = $conexion->query($consulta);			
 

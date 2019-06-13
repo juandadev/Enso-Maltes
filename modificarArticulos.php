@@ -15,7 +15,7 @@ session_start();
 		   
     require 'private/config.php';
     
-		$conexion = new mysqli("localhost", 'juan', 'juan15410596', "enso_maltes");
+		$conexion = new mysqli("localhost", $db_config['user'], $db_config['pass'], "enso_maltes");
 			
 			if ($conexion->connect_error) {
 			    die("La conexion falló: " . $conexion->connect_error);

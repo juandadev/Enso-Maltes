@@ -2,8 +2,7 @@
 //Database connection
 function connection($db_config) {
     try {
-//        $con = new PDO('mysql:host=localhost;dbname='.$db_config['database'].'', $db_config['user'], $db_config['pass']);
-        $con = new PDO('mysql:host=localhost;dbname=enso_maltes', 'juan', 'juan15410596');
+        $con = new PDO('mysql:host=localhost;dbname='.$db_config['database'].'', $db_config['user'], $db_config['pass']);
         return $con;
     } catch (PDOException $e) {
         echo "Error: ". $e->getMessage();
