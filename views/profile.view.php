@@ -14,7 +14,7 @@ if (isset($_SESSION['usuario'])) {
             <div class="pp">
                 <img src="users/profile/<?php print_r($user['foto_perfil']); ?>" alt="<?php print_r($user['nombre_usuario']); ?>">
             </div>
-            
+
             <?php if ($_SESSION['usuario'] == $user['id_usuario']): ?>
             <button class="load_p"><i class="fas fa-edit"></i></button>
             <?php endif; ?>
@@ -27,21 +27,17 @@ if (isset($_SESSION['usuario'])) {
         <p class="gender"><?php print_r($user['genero']); ?></p>
 
         <div class="info_autor">
-
             <p><?php print_r($user['info_usuario']); ?></p>
-            <p><a href="editor.html"> Escribir entrada</a></p>
-            <p><a href="editarArticulo.php"> Modificar entradas</a></p>
-            <p><a href="eliminarArticulo.php"> Borrar entrada</a></p>
         </div>
 
         <?php if ($_SESSION['usuario'] == $user['id_usuario']): ?>
         <a href="editProfile.php">Editar datos</a>
         <?php endif; ?>
     </div>
-    
+
     <?php if ($posts): ?>
     <section class="preview">
-       <?php foreach ($posts as $post): ?>
+        <?php foreach ($posts as $post): ?>
         <div class="item-prev">
             <h4><a href=""><?php print_r($post['nombre_categoria']); ?></a></h4>
 
@@ -58,11 +54,18 @@ if (isset($_SESSION['usuario'])) {
                     <p>0</p>
                 </i>
             </div>
+
+            <?php if ($_SESSION['usuario'] == $user['id_usuario']): ?>
+            <div class="controlA">
+                <a href="editarArticulo.php?idA=<?php print_r($post['id_articulo']); ?>">Editar</a>
+                <a href="eliminarArticuloBD.php?idA=<?php print_r($post['id_articulo']); ?>">Eliminar</a>
+            </div>
+            <?php endif; ?>
         </div>
         <?php endforeach; ?>
-    <?php else: ?>
-    <h2 class="no_p">No hay articulos de este usuario todvía!</h2>
-    <?php endif; ?>
+        <?php else: ?>
+        <h2 class="no_p">No hay articulos de este usuario todvía!</h2>
+        <?php endif; ?>
     </section>
 </main>
 

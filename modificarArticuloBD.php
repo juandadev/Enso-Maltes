@@ -24,7 +24,7 @@ $sql='update articulos set titulo="'.$_POST['titulo'].'", extracto="'.$_POST['ex
 
 
 if ($enlace->query($sql) === TRUE) {
-    header('Location: profile.php');
+    header('Location: profile.php?id='.$_SESSION['usuario']);
 } else {
     echo "Error al modificar la base de datos: ";
 }
@@ -33,7 +33,7 @@ $enlace->close();
 
 } else{
 
-	header('Location: perfil.html');
+	header('Location: profile.php?id='.$_SESSION['usuario']);
 }
 
 

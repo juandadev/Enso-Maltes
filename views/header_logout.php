@@ -13,7 +13,7 @@
 
     <title>Enso Maltés | Inicio</title>
 
-    <script src="js/principal.js"></script>
+    <script src="js/btnLogout.js"></script>
 </head>
 
 <body>
@@ -29,5 +29,7 @@
             <a href="contact.php">Contacto</a>
 
             <button class="btnLogout" id="btnLogout">Cerrar sesión</button>
+            
+            <a href="editor.php" class="newPost"><i class="far fa-plus-square"></i></a>
         </nav>
     </header>

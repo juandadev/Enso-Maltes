@@ -92,5 +92,11 @@ function contarVisitas($id, $con) {
     
     return $visita;
 }
+
+function editar($con, $id) {
+    $result = $con->prepare("SELECT * FROM articulos WHERE id_articulo = $id");
+    $result->execute();
+    return $result->fetchAll();
+}
 //UPDATE `articulos` SET `visitas` = 10 WHERE id_articulo = 2
 ?>
