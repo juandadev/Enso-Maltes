@@ -2,7 +2,7 @@
 //Database connection
 function connection($db_config) {
     try {
-        $con = new PDO('mysql:host=localhost;dbname='.$db_config['database'].'', $db_config['user'], $db_config['pass']);
+        $con = new PDO('mysql:host='.$db_config['host'].';dbname='.$db_config['database'].'', $db_config['user'], $db_config['pass']);
         return $con;
     } catch (PDOException $e) {
         echo "Error: ". $e->getMessage();
@@ -98,5 +98,10 @@ function editar($con, $id) {
     $result->execute();
     return $result->fetchAll();
 }
-//UPDATE `articulos` SET `visitas` = 10 WHERE id_articulo = 2
+
+function categorias($con) {
+    $result = $con->prepare("SELECT * FROM categorias");
+    $result->execute();
+    return $result->fetchAll();
+}
 ?>
