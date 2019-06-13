@@ -102,5 +102,9 @@ function contarVisitas($id, $con) {
     
     return $visita;
 }
-//UPDATE `articulos` SET `visitas` = 10 WHERE id_articulo = 2
+
+function loadImageProfile($con, $image, $id) {
+    $statement = $con->prepare("UPDATE usuarios SET foto_perfil = '$image' WHERE id_usuario = $id");
+    $statement->execute();
+}
 ?>

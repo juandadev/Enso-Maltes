@@ -14,9 +14,20 @@ if (isset($_SESSION['usuario'])) {
             <div class="pp">
                 <img src="users/profile/<?php print_r($user['foto_perfil']); ?>" alt="<?php print_r($user['nombre_usuario']); ?>">
             </div>
-            
+
             <?php if ($_SESSION['usuario'] == $user['id_usuario']): ?>
-            <button class="load_p"><i class="fas fa-edit"></i></button>
+            <form method="POST" enctype="multipart/form-data" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>?id=<?php print_r($user['id_usuario']); ?>">
+                <label for="loadImg">
+                    <input type="file" class="load_p" id="loadImg" name="loadImg" onchange="this.form.submit();"></input>
+                    <i class="fas fa-edit"></i>
+                </label>
+            </form>
+            
+                <?php if(!empty($error)): ?>
+                <div class="errors">
+                    <p><?php echo $error; ?></p>
+                </div>
+                <?php endif; ?>
             <?php endif; ?>
         </div>
 
@@ -34,10 +45,10 @@ if (isset($_SESSION['usuario'])) {
         <a href="editProfile.php">Editar datos</a>
         <?php endif; ?>
     </div>
-    
+
     <?php if ($posts): ?>
     <section class="preview">
-       <?php foreach ($posts as $post): ?>
+        <?php foreach ($posts as $post): ?>
         <div class="item-prev">
             <h4><a href=""><?php print_r($post['nombre_categoria']); ?></a></h4>
 
@@ -56,9 +67,9 @@ if (isset($_SESSION['usuario'])) {
             </div>
         </div>
         <?php endforeach; ?>
-    <?php else: ?>
-    <h2 class="no_p">No hay articulos de este usuario todvía!</h2>
-    <?php endif; ?>
+        <?php else: ?>
+        <h2 class="no_p">No hay articulos de este usuario todvía!</h2>
+        <?php endif; ?>
     </section>
     
     <?php
