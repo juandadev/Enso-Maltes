@@ -1,36 +1,21 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-		<style>
-		#descripcion{
-			background-color:red;
-			width: 31%;
-			height: 45%;
-			display: inline-block;
-			margin-right: 1%;
-			margin-left: 1%;
-			margin-top: 1%;
-			margin-bottom: 1%;
-}
-	
-</style>
-	<title></title>
-</head>
-<body>
+<?php
+session_start();
+	if (isset($_SESSION['usuario'])) {
+    require 'views/header_logout.php';
+} else {
+    require 'views/header_login.php';
+} 
+?>
 
 
 
 <form  action="editarArticulo.php"  method = "POST" >
 
 	<?php  
-		session_start();
-	if (isset($_SESSION['usuario'])) {
-    require 'views/header_logout.php';
-} else {
-    require 'views/header_login.php';
-}
-		$conexion = new mysqli("localhost", "root", "root", "enso_maltes");
+		   
+    require 'private/config.php';
+    
+		$conexion = new mysqli("localhost", 'juan', 'juan15410596', "enso_maltes");
 			
 			if ($conexion->connect_error) {
 			    die("La conexion falló: " . $conexion->connect_error);

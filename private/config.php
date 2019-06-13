@@ -2,8 +2,8 @@
 $db_config = array(
     'host' => 'localhost',
     'database' => 'enso_maltes',
-    'user' => 'root',
-    'pass' => 'root'
+    'user' => 'juan',
+    'pass' => 'juan15410596'
 );
 
 $blog_config = array(

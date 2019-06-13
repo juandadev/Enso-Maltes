@@ -9,7 +9,7 @@
 if(filter_input(INPUT_POST, 'editor_content') AND filter_input(INPUT_POST, 'titulo') AND filter_input(INPUT_POST, 'genero') AND filter_input(INPUT_POST, 'extracto')){
 
 
-	$enlace = mysqli_connect("localhost", "root", "root", "enso_maltes");
+	$enlace = mysqli_connect("localhost", "juan", "juan15410596", "enso_maltes");
 
 if ($enlace->connect_error) {
     die("La conexión falló: " . $enlace->connect_error);
@@ -22,6 +22,7 @@ $texto = htmlentities($_POST['editor_content']);
 		
 
 		$sql = 'insert into articulos (id_articulo, fk_id_usuario, titulo, extracto, fecha, contenido, foto_portada, fk_id_categoria, visitas, comentarios) values (default, "'.$_SESSION['usuario'].'", "'.$_POST['titulo'].'", "'.$_POST['extracto'].'", current_timestamp, "'.$texto.'", null, "'.$_POST['genero'].'", 0, 0)';
+		echo $sql;
 
 
 if ($enlace->query($sql) === TRUE) {

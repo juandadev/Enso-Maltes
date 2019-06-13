@@ -1,15 +1,10 @@
 <?php
-			session_start();
-	if (isset($_SESSION['usuario'])) {
-    require 'views/header_logout.php';
-} else {
-    require 'views/header_login.php';
-}
+	//Falta checar la sesión
 
 if(filter_input(INPUT_POST, 'eliminar')){
 
 
-	$enlace = mysqli_connect("localhost", "root", "root", "enso_maltes");
+	$enlace = mysqli_connect("localhost", "juan", "juan15410596", "enso_maltes");
 
 if ($enlace->connect_error) {
     die("La conexión falló: " . $enlace->connect_error);
