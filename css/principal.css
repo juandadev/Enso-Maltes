@@ -408,6 +408,25 @@ nav a:hover {
 }
 
 /* ERROR */
+.errors {
+    width: 30%;
+    margin: 20px auto;
+    padding: 20px;
+    background: #385D66;
+}
+
+.errors p {
+    font-size: 20px;
+    color: #fff;
+}
+
+.error h2 {
+    text-align: center;
+    font-size: 48px;
+    font-family: Lato;
+    color: #707070;
+}
+
 .error h2 {
     text-align: center;
     font-size: 48px;
@@ -439,6 +458,15 @@ main .editar_foto {
 }
 
 main .editar_foto .load_p {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+main .editar_foto label {
     width: 70px;
     height: 70px;
     display: block;
@@ -449,11 +477,14 @@ main .editar_foto .load_p {
     margin-top: -60px;
     margin-left: 55%;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
+    cursor: pointer;
 }
 
-main .editar_foto .load_p i {
+main .editar_foto label i {
     color: #fff;
     font-size: 30px;
+    margin-top: 20px;
+    margin-left: 5px;
 }
 
 main .profile_container {

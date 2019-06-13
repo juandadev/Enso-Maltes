@@ -104,4 +104,9 @@ function categorias($con) {
     $result->execute();
     return $result->fetchAll();
 }
+
+function loadImageProfile($con, $image, $id) {
+    $statement = $con->prepare("UPDATE usuarios SET foto_perfil = '$image' WHERE id_usuario = $id");
+    $statement->execute();
+}
 ?>
