@@ -28,12 +28,6 @@ function obtenerPost($post_per_page, $con) {
     return $sentence->fetchAll();
 }
 
-function postsAutor($id, $con) {
-    $result = $con->prepare("SELECT articulos.id_articulo, articulos.fk_id_usuario, articulos.titulo, articulos.extracto, articulos.visitas, categorias.nombre_categoria FROM articulos INNER JOIN categorias ON articulos.fk_id_categoria = categorias.id_categoria WHERE fk_id_usuario = $id");
-    $result->execute();
-    return $result->fetchAll();
-}
-
 function article($id) {
     return (int)limpiarDatos($id);
 }
@@ -79,6 +73,12 @@ function mailExists($email, $con) {
     return ($result) ? true : false;
 }
 
+function postsAutor($id, $con) {
+    $result = $con->prepare("SELECT articulos.id_articulo, articulos.fk_id_usuario, articulos.titulo, articulos.extracto, articulos.visitas, categorias.nombre_categoria FROM articulos INNER JOIN categorias ON articulos.fk_id_categoria = categorias.id_categoria WHERE fk_id_usuario = $id");
+    $result->execute();
+    return $result->fetchAll();
+}
+
 function contarVisitas($id, $con) {
     $result = $con->prepare("SELECT * FROM articulos WHERE id_articulo = $id");
     $result->execute();
@@ -92,9 +92,5 @@ function contarVisitas($id, $con) {
     
     return $visita;
 }
-
-function loadImageProfile($con, $image, $id) {
-    $statement = $con->prepare("UPDATE usuarios SET foto_perfil = '$image' WHERE id_usuario = $id");
-    $statement->execute();
-}
+//UPDATE `articulos` SET `visitas` = 10 WHERE id_articulo = 2
 ?>

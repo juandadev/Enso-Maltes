@@ -25,7 +25,7 @@ if (isset($_SESSION['usuario'])) {
             <p><?php echo $post['nombre_usuario']; ?></p>
         </div>
 
-        <p class="content"><?php echo $post['contenido']; ?></p>
+        <?php echo html_entity_decode($post['contenido']); ?>
 
     </div>
 </main>

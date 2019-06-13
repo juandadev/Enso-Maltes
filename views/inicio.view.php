@@ -23,6 +23,7 @@ if (isset($_SESSION['usuario'])) {
                 </div>
 
                 <div class="footer-rank">
+                    
                     <a href="article.php?id=<?php print_r($principal['id_articulo']) ?>">Seguir leyendo</a>
 
                     <div class="author">
@@ -76,8 +77,8 @@ if (isset($_SESSION['usuario'])) {
     </section>
 
     <?php
-    require 'views/paginacion_inicio.php';
-    ?>
+        require 'paginacion.php';
+        ?>
 </main>
 
 <?php
