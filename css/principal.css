@@ -47,25 +47,25 @@ main {
     padding-top: 100px;
 }
 
-main h2 {
+main .msgH {
     text-align: center;
     color: #707070;
     margin-bottom: 100px;
 }
 
-main p {
+main .msgP {
     text-align: center;
     color: #c9c9c9;
     margin-bottom: 100px;
 }
 
-main a {
+main .msgA {
     text-decoration: none;
     color: #707070;
     transition: 0.3s ease;
 }
 
-main a:hover {
+main .msgA:hover {
     opacity: 0.5;
 }
 

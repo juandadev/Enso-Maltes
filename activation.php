@@ -19,7 +19,7 @@ if ($result != false) {
     $statement = $con->prepare("UPDATE usuarios SET verificado = '1' WHERE token = '".$_GET['token']."'");
     $statement->execute();
     
-    $msg = 'Tu cuenta ha sido verificada exitosamente! ahora ya puedes <a href="'.$db_config['url'].'/login.php">Iniciar sesión</a>!';
+    $msg = 'Tu cuenta ha sido verificada exitosamente! ahora ya puedes <a class="msgA" href="'.$db_config['url'].'/login.php">Iniciar sesión</a>!';
 } else {
     $msg = 'El link de verificación ha expirado!';
 }
@@ -28,7 +28,7 @@ require 'private/config.php';
 ?>
 
 <main>
-    <h2><?php echo $msg; ?></h2>
+    <h2 class="msgH"><?php echo $msg; ?></h2>
 </main>
 
 <?php

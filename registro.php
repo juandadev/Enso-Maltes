@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $sendMail = new email('Enso Maltés', 'snoopdjffny@gmail.com', '15410596juandaniel16');
         $sendMail->agregar($email, $user);
         
-        if ($sendMail->enviar('Prueba de correo', $contenido)) {
+        if ($sendMail->enviar('Verificación de correo.', $contenido)) {
             header('Location: msg.php?m=1');
         } else {
             $errors .= '<li>Error al enviar correo de verificación</li>';
