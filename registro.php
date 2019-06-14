@@ -7,13 +7,14 @@ if (isset($_SESSION['usuario'])) {
 
 require 'private/config.php';
 require 'php/functions.php';
-//Los datos se recibieron por via get
+
+//Los datos se recibieron por via post
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $user = filter_var(strtolower($_POST['user']), FILTER_SANITIZE_STRING);
     $email = $_POST['email'];
     $password = $_POST['passw'];
     $confirm = $_POST['confPass'];
-    
+        
     $errors = ''; //Almacena los mensajes de error
     
     if (empty($user) || empty($email) || empty($password) || empty($confirm)) {
@@ -49,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 //        Insertado usuario en BD
         $statement = $con->prepare("INSERT INTO usuarios (id_usuario, nombre_usuario, correo, contrasena) VALUES (null, '$user', '$email', '$password')");
         $statement->execute();
-        
+                
         header('Location: login.php');
     }
 }
