@@ -47,6 +47,28 @@ main {
     padding-top: 100px;
 }
 
+main h2 {
+    text-align: center;
+    color: #707070;
+    margin-bottom: 100px;
+}
+
+main p {
+    text-align: center;
+    color: #c9c9c9;
+    margin-bottom: 100px;
+}
+
+main a {
+    text-decoration: none;
+    color: #707070;
+    transition: 0.3s ease;
+}
+
+main a:hover {
+    opacity: 0.5;
+}
+
 /* Sticky navbar */
 .sticky {
     position: fixed;

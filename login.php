@@ -24,10 +24,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $statement = $con->prepare("SELECT * FROM usuarios WHERE correo = '$email' AND contrasena = '$password'");
     $statement->execute();
     $result = $statement->fetch();
+    $verificado = $result['verificado'];
     
     if ($result !== false) {
-        $_SESSION['usuario'] = $result['id_usuario'];
-        header('Location: inicio.php');
+        if ($verificado == 1) {    
+            $_SESSION['usuario'] = $result['id_usuario'];
+            header('Location: inicio.php');
+        } else {
+            $errors .= '<li>Tu cuenta no ha sido verificada</li>';
+        }
     } else {
         $errors .= '<li>Correo o contraseña incorrectos</li>';
     }

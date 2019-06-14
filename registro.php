@@ -14,6 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $password = $_POST['passw'];
     $confirm = $_POST['confPass'];
+    $token = md5($_POST['email']);
         
     $errors = ''; //Almacena los mensajes de error
     
@@ -48,10 +49,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     
     if ($errors == '') {
 //        Insertado usuario en BD
-        $statement = $con->prepare("INSERT INTO usuarios (id_usuario, nombre_usuario, correo, contrasena) VALUES (null, '$user', '$email', '$password')");
+        $statement = $con->prepare("INSERT INTO usuarios (id_usuario, nombre_usuario, correo, contrasena, token) VALUES (null, '$user', '$email', '$password', '$token')");
         $statement->execute();
-                
-        header('Location: login.php');
+        
+        include("php/envioCorreo.php");
+        
+        $contenido = '<div>        
+        <h1>Hola '.$user.'!</h1>
+        
+        <p>Agradecemos tu registro a nuestro blog, para verificar que eres humano, por favor verifica tu correo para que puedas tener acceso a tu cuenta en nuestra plataforma.</p>
+        
+        <p>Ingresa a este enlace para completar el registro:</p>
+        
+        <a href="'.$db_config['url'].'/activation.php?token='.$token.'">https://ensomaltes.xyz/activation.php?token='.$token.'</a>
+        
+        <p>Enso Maltés | 2019 &copy; Juan Daniel Martinez Navarro & Francisco Carrillo Ayala</p>
+        
+    </div>';
+        
+        $sendMail = new email('Enso Maltés', 'snoopdjffny@gmail.com', '15410596juandaniel16');
+        $sendMail->agregar($email, $user);
+        
+        if ($sendMail->enviar('Prueba de correo', $contenido)) {
+            header('Location: msg.php?m=1');
+        } else {
+            $errors .= '<li>Error al enviar correo de verificación</li>';
+            $errors .= '<li>'.$sendMail->ErrorInfo.'</li>';
+        }
     }
 }
 

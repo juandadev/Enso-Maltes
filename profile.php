@@ -22,10 +22,6 @@ if (!$user) {
 
 $posts = postsAutor($id_usuario, $con);
 
-if (!$posts) {
-    header('Location: error.php?e=4');
-}
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_FILES)) {    
     if ($_FILES['loadImg']['error'] > 0) {
         $error = 'Ha ocurrido un error al subir la imagen';
