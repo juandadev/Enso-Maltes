@@ -11,6 +11,12 @@ if (isset($_SESSION['usuario'])) {
 <main>
     <div class="content">
         <h1>Contacto</h1>
+        
+        <p>
+            ¿Quieres saber más de nosotros? ¿Qué planeamos a futuro? ¿Cómo va a evolucionar esto? ¿Por qué odiamos la censura? Ponte en contacto con nosotros.
+        </p>
+        
+        <p>Contacto: fcarrillo@itparral.edu.mx</p>
     </div>
 </main>
 

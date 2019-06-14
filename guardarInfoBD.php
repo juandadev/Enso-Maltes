@@ -24,7 +24,6 @@ $texto = htmlentities($_POST['editor_content']);
 		
 
 		$sql = 'insert into articulos (id_articulo, fk_id_usuario, titulo, extracto, fecha, contenido, foto_portada, fk_id_categoria, visitas) values (default, "'.$_SESSION['usuario'].'", "'.$_POST['titulo'].'", "'.$_POST['extracto'].'", current_timestamp, "'.$texto.'", null, "'.$_POST['genero'].'", 0)';
-		echo $sql;
 
 
 if ($enlace->query($sql) === TRUE) {
