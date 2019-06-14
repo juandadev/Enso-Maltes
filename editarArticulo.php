@@ -14,77 +14,39 @@
 
 <body>
 
-
-
     <?php  
-    
     session_start();
 
-if (isset($_SESSION['usuario'])) {
-    require 'views/header_logout.php';
-} else {
-    require 'views/header_login.php';
-}
-   require 'php/functions.php'; 
-require 'private/config.php';
+    if (isset($_SESSION['usuario'])) {
+        require 'views/header_logout.php';
+    } else {
+        require 'views/header_login.php';
+    }
+
+    require 'php/functions.php'; 
+    require 'private/config.php';
+
     $con = connection($db_config);
-	
+
+    if (!$con) {
+        header('Location: error.php?e=4');
+    }
+    
+//    if (empty($_GET['id'])) {
+//        header('Location: inicio.php');
+//    }
+    
     $editA = editar($con, $_GET['idA']);
     $editA = $editA[0];
     
+    if (!$editA) {
+        header('Location: error.php?e=2');
+    } else if ($editA['fk_id_usuario'] != $_SESSION['usuario']) {
+        header('Location: error.php?e=5');
+    }
+
     $cats = categorias($con);
-/*if(filter_input(INPUT_POST, 'modificar')){
-
-
-		$enlace = mysqli_connect("localhost", $db_config['user'], $db_config['pass'], "enso_maltes");
-			
-			if ($enlace->connect_error) {
-			    die("La conexion falló: " . $conexion->connect_error);
-			} 
-
-			$consulta = 'select * from articulos where id_articulo ='.$_POST['modificar'];
-			
-			$result = $enlace->query($consulta);			
-
-			if ($result->num_rows > 0) {
-			    
-
-			    while($row = $result->fetch_assoc()) {
-
-			        echo '	<form  action="modificarArticuloBD.php"  method = "POST" >
-   
-			<textarea name="titulo"> '.$row["titulo"].'</textarea>
-
-  			<textarea  name = "editor_content"  id = "myEditor" enctype="multipart/form-data">'
-  				.$row["contenido"].
-  			'</textarea>
-
-  			<textarea name="extracto" placeholder="Opcional: Escriba una breve introducción de su texto">'.$row["extracto"].'</textarea><br>
-
-  			<input type="radio" name="genero" value="1" checked> Arte<br>
-  			<input type="radio" name="genero" value="2"> Filosofía<br>
-  			<input type="radio" name="genero" value="3"> Ciencia<br>
-  			<input type="radio" name="genero" value="4"> Música<br>
-  			<input type="radio" name="genero" value="5"> Misticismo<br>
-  			<input type="radio" name="genero" value="6"> Tecnología<br>
-  			<input type="radio" name="genero" value="7"> Salud<br>
-  			<input type="radio" name="genero" value="8"> Política<br>
-  			<input type="radio" name="genero" value="9"> Ciencia<br>
-  			<input type="radio" name="genero" value="Drogas"> Drogas<br>
-  			<input type="hidden" name="id" value='.$row["id_articulo"].'> 
-  		
-  		<button> Enviar </button> 
-	</form>';
-			    }
-			} else {
-			    echo "0 results";
-			}
-			$enlace->close();
-			} else{
-
-	header('Location: modificarArticulos.php');
-}*/
-?>
+    ?>
 
     <main>
 

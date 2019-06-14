@@ -29,6 +29,14 @@ if (isset($_SESSION['usuario'])) {
         case 4:
             echo '<h2>Ups! parece que hubo un error de conexión</h2>';
             break;
+        
+        case 5:
+            echo '<h2>Solo el autor de este artículo lo puede editar!</h2>';
+            break;
+            
+        default:
+            echo '<h2>Error desconocido</h2>';
+            break;
     }
     ?>
     </div>
