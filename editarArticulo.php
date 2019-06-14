@@ -32,10 +32,6 @@
         header('Location: error.php?e=4');
     }
     
-//    if (empty($_GET['id'])) {
-//        header('Location: inicio.php');
-//    }
-    
     $editA = editar($con, $_GET['idA']);
     $editA = $editA[0];
     
@@ -60,7 +56,7 @@
             
             <div class="categoriaA">
                 <?php foreach ($cats as $cat): ?>
-                <input id="<?php print_r($cat['nombre_categoria']); ?>" type="radio" name="genero" value="<?php print_r($cat['id_categoria']); ?>" checked><span class="customRadio"></span><label for="<?php print_r($cat['nombre_categoria']); ?>"><?php print_r($cat['nombre_categoria']); ?></label>
+                <input id="<?php print_r($cat['nombre_categoria']); ?>" type="radio" name="genero" value="<?php print_r($cat['id_categoria']); ?>" <?php if ($cat['id_categoria'] == $editA['fk_id_categoria']) {echo 'checked';} ?>><span class="customRadio"></span><label for="<?php print_r($cat['nombre_categoria']); ?>"><?php print_r($cat['nombre_categoria']); ?></label>
                 <?php endforeach; ?>
             </div>
             

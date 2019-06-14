@@ -6,7 +6,7 @@ require 'private/config.php';
 if(filter_input(INPUT_GET, 'idA')){
 
 
-	$enlace = mysqli_connect($db_config['host'], $db_config['user'], $db_config['pass'], "enso_maltes");
+	$enlace = mysqli_connect($db_config['host'], $db_config['user'], $db_config['pass'], $db_config['database']);
 
 if ($enlace->connect_error) {
     die("La conexión falló: " . $enlace->connect_error);
