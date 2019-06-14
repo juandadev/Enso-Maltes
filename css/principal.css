@@ -475,8 +475,8 @@ main .editar_foto label {
     border: none;
     border-radius: 50px;
     margin: auto;
-    margin-top: -60px;
-    margin-left: 55%;
+    margin-top: -110px;
+    margin-left: 57%;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
     cursor: pointer;
 }
